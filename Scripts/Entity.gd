@@ -16,6 +16,8 @@ class_name Entity
 @export var base_SP_regen : int = 1 #Base Skill Point regen
 
 
+
+
 func regen_HP(stat_bonus):
 	if(current_HP < max_HP):
 		if(base_HP_regen + current_HP) > max_HP:
@@ -47,3 +49,8 @@ func load_ability(name):
 	var sceneNode = scene.instantiate()
 	add_child(sceneNode)
 	return sceneNode
+	
+func remove_ability(name):
+	remove_child(name)
+	print("Removed " + str(name) + "!")
+	

@@ -1,6 +1,6 @@
 extends Entity
-const ABILITY_SLOT_MAX : int = 3
-@export var abilities = {} #key = sting, value = scene
+class_name PlayerControlsBase
+@export var player_stats : Player_Base_Stats
 var sloted_abilities = []
 
 
@@ -8,16 +8,15 @@ var sloted_abilities = []
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 
 func _ready():
-	sloted_abilities.resize(ABILITY_SLOT_MAX)
-	if(abilities != null && abilities.size() <= ABILITY_SLOT_MAX):
+	sloted_abilities.resize(player_stats.ABILITY_SLOT_MAX)
+	if(player_stats.abilities != null && player_stats.abilities.size() <= player_stats.ABILITY_SLOT_MAX):
 		var i = 0
-		for key in abilities:
-			sloted_abilities[i] = load_ability(key)
+		for name in player_stats.abilities:
+			sloted_abilities[i] = load_ability(name)
 			i += 1
 	else:
 		push_error("Ability slots are either NULL, or exceeds the current maximum")
 		
-	
 func _process(delta):
 	if Input.is_action_just_pressed("ability_1"):
 		if sloted_abilities[0] != null:
@@ -28,6 +27,8 @@ func _process(delta):
 	if Input.is_action_just_pressed("ability_3"):
 		if sloted_abilities[2] != null:
 			sloted_abilities[2].execute()
+	if Input.is_action_just_pressed("debug_test"):
+		remove_ability(sloted_abilities[0])
 
 func _physics_process(delta):
 	# Add the gravity.
