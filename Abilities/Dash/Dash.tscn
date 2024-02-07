@@ -2,10 +2,8 @@
 
 [ext_resource type="Script" path="res://Abilities/Dash/Dash.gd" id="1_7l51b"]
 
-[node name="Dash" type="Node3D" node_paths=PackedStringArray("timer")]
+[node name="Dash" type="Node3D"]
 script = ExtResource("1_7l51b")
-speed_multiplier = 2
-timer = NodePath("Timer")
 
 [node name="Timer" type="Timer" parent="."]
 

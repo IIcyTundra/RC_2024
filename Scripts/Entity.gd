@@ -8,8 +8,8 @@ class_name Entity
 @export var max_AP : int = 100
 @export var current_AP : int = 100
 
-@export var max_speed : int = 100 #Entity Walk Speed
-@export var current_speed : int = 50 #Entity Run Speed
+@export var max_speed : int = 5 #Entity max Speed
+@export var current_speed : int = 3 #Entity current Speed
 
 @export var base_damage : int = 10 #Base Damage an Entity can output
 @export var base_HP_regen : int = 1 #Base Health regen
@@ -43,9 +43,7 @@ func modify_AP(stat_bonus):
 	
 func load_ability(name):
 	var scene = load("res://Abilities/" + name + "/" + name + ".tscn")
-	if scene == null:
-		
-		push_error("The Ability you tried to load doesn't exist! Make sure you named it correctly.")
-	var sceneNode = scene.instance()
+	print(scene)
+	var sceneNode = scene.instantiate()
 	add_child(sceneNode)
 	return sceneNode

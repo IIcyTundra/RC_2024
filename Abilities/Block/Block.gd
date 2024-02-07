@@ -1,4 +1,4 @@
 extends AbilityBase
 
 func execute():
-	print("Using Dash Ability!")
+	print("Using Block Ability!")
