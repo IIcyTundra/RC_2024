@@ -35,5 +35,3 @@ use_collision = true
 size = Vector3(7, 1, 7)
 
 [node name="CharacterBody3D" parent="." instance=ExtResource("1_n7fda")]
-
-[node name="GridMap" type="GridMap" parent="."]

@@ -1,0 +1,52 @@
+[gd_scene load_steps=8 format=3 uid="uid://cdvmyxb1ihloo"]
+
+[ext_resource type="Shader" path="res://Scripts/VHS.gdshader" id="1_kpaak"]
+[ext_resource type="PackedScene" uid="uid://cr2ersq7g6q6f" path="res://addons/Scenes/Characters/player.tscn" id="3_d4mvi"]
+[ext_resource type="PackedScene" uid="uid://coa6sj1jv4ib3" path="res://New_Mombasa.tscn" id="3_k22qq"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_10vkc"]
+shader = ExtResource("1_kpaak")
+shader_parameter/enabled = true
+shader_parameter/dithering = true
+shader_parameter/colors = 12
+shader_parameter/dither_size = 3
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_vysik"]
+sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+ground_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+
+[sub_resource type="Sky" id="Sky_j2lia"]
+sky_material = SubResource("ProceduralSkyMaterial_vysik")
+
+[sub_resource type="Environment" id="Environment_3luqs"]
+background_mode = 2
+sky = SubResource("Sky_j2lia")
+tonemap_mode = 2
+glow_enabled = true
+
+[node name="SubViewportContainer" type="SubViewportContainer"]
+material = SubResource("ShaderMaterial_10vkc")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_3luqs")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.866023, -0.433016, 0.250001, 0, 0.499998, 0.866027, -0.500003, 0.749999, -0.43301, 0, 0, 0)
+shadow_enabled = true
+
+[node name="SubViewport" type="SubViewport" parent="."]
+handle_input_locally = false
+size = Vector2i(1152, 648)
+render_target_update_mode = 4
+
+[node name="Node3D" type="Node3D" parent="SubViewport"]
+
+[node name="Sketchfab_Scene" parent="SubViewport/Node3D" instance=ExtResource("3_k22qq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -137, 0)
+
+[node name="Player" parent="SubViewport/Node3D" instance=ExtResource("3_d4mvi")]
