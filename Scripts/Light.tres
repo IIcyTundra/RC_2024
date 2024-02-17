@@ -10,5 +10,5 @@ base_HP = 0
 base_SP = 0
 base_AP = 0
 base_speed = 0
-base_limit_break = 0
+base_stamina = 0
 abilities = ["Block", "Dash"]

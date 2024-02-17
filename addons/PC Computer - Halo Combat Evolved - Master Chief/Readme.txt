@@ -1,1 +1,0 @@
-This model was ripped by Shadowth117 using TheGhost's Halo CE model importer. No credit needed.
