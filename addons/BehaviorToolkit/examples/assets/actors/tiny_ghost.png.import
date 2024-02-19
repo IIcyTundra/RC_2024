@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://bqmwkipw1o70p"
-path="res://.godot/imported/tiny_ghost.png-aa7c83e251ace0de2ced8fa8951d615b.ctex"
+path="res://.godot/imported/tiny_ghost.png-fa7737d2794bac999f69d0ef3296b8f2.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://examples/assets/actors/tiny_ghost.png"
-dest_files=["res://.godot/imported/tiny_ghost.png-aa7c83e251ace0de2ced8fa8951d615b.ctex"]
+source_file="res://addons/BehaviorToolkit/examples/assets/actors/tiny_ghost.png"
+dest_files=["res://.godot/imported/tiny_ghost.png-fa7737d2794bac999f69d0ef3296b8f2.ctex"]
 
 [params]
 

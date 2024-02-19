@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://bwsntsm8f3msh"
-path="res://.godot/imported/BTCompositeRandomSequence.svg-190695524eac4f2c5cfb58aafe93cfbb.ctex"
+path="res://.godot/imported/BTCompositeRandomSequence.svg-dfbace66f56bbcb96cd1dcc4a8705bd2.ctex"
 metadata={
 "has_editor_variant": true,
 "vram_texture": false
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://addons/behaviour_toolkit/icons/BTCompositeRandomSequence.svg"
-dest_files=["res://.godot/imported/BTCompositeRandomSequence.svg-190695524eac4f2c5cfb58aafe93cfbb.ctex"]
+source_file="res://addons/BehaviorToolkit/addons/behaviour_toolkit/icons/BTCompositeRandomSequence.svg"
+dest_files=["res://.godot/imported/BTCompositeRandomSequence.svg-dfbace66f56bbcb96cd1dcc4a8705bd2.ctex"]
 
 [params]
 

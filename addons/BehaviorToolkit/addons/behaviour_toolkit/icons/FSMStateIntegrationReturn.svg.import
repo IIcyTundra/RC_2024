@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://cjfh8x8tx20cq"
-path="res://.godot/imported/FSMStateIntegrationReturn.svg-3b3b086bb57c5145bc7be34e441fba59.ctex"
+path="res://.godot/imported/FSMStateIntegrationReturn.svg-a4d5500e7b4eeebc7dc9dcc0ee3757dd.ctex"
 metadata={
 "has_editor_variant": true,
 "vram_texture": false
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://addons/behaviour_toolkit/icons/FSMStateIntegrationReturn.svg"
-dest_files=["res://.godot/imported/FSMStateIntegrationReturn.svg-3b3b086bb57c5145bc7be34e441fba59.ctex"]
+source_file="res://addons/BehaviorToolkit/addons/behaviour_toolkit/icons/FSMStateIntegrationReturn.svg"
+dest_files=["res://.godot/imported/FSMStateIntegrationReturn.svg-a4d5500e7b4eeebc7dc9dcc0ee3757dd.ctex"]
 
 [params]
 

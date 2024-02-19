@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://btxqb42k83r5o"
-path="res://.godot/imported/tiny_evil wizard.png-7c6e76502002e65385293ef73c1ab62d.ctex"
+path="res://.godot/imported/tiny_evil wizard.png-4bdfc6315dc901f21629677eee5afae2.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://examples/assets/actors/tiny_evil wizard.png"
-dest_files=["res://.godot/imported/tiny_evil wizard.png-7c6e76502002e65385293ef73c1ab62d.ctex"]
+source_file="res://addons/BehaviorToolkit/examples/assets/actors/tiny_evil wizard.png"
+dest_files=["res://.godot/imported/tiny_evil wizard.png-4bdfc6315dc901f21629677eee5afae2.ctex"]
 
 [params]
 

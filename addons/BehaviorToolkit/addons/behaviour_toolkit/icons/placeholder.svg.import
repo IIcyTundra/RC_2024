@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://dpfva3ksgkvkx"
-path="res://.godot/imported/placeholder.svg-d1f5342e31d8125f82f8e7322e2c8be9.ctex"
+path="res://.godot/imported/placeholder.svg-70dda21aa7b6c56c0a438653d9fb69b5.ctex"
 metadata={
 "has_editor_variant": true,
 "vram_texture": false
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://addons/behaviour_toolkit/icons/placeholder.svg"
-dest_files=["res://.godot/imported/placeholder.svg-d1f5342e31d8125f82f8e7322e2c8be9.ctex"]
+source_file="res://addons/BehaviorToolkit/addons/behaviour_toolkit/icons/placeholder.svg"
+dest_files=["res://.godot/imported/placeholder.svg-70dda21aa7b6c56c0a438653d9fb69b5.ctex"]
 
 [params]
 

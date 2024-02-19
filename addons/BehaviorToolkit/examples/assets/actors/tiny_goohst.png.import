@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://bgflndmud3o7t"
-path="res://.godot/imported/tiny_goohst.png-4c05259f4de4ae6fd7ce29fe28e4a72c.ctex"
+path="res://.godot/imported/tiny_goohst.png-2e5b119a0d9fd5cbeb06cc9d56a4bf46.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://examples/assets/actors/tiny_goohst.png"
-dest_files=["res://.godot/imported/tiny_goohst.png-4c05259f4de4ae6fd7ce29fe28e4a72c.ctex"]
+source_file="res://addons/BehaviorToolkit/examples/assets/actors/tiny_goohst.png"
+dest_files=["res://.godot/imported/tiny_goohst.png-2e5b119a0d9fd5cbeb06cc9d56a4bf46.ctex"]
 
 [params]
 

@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://1qeduaxet8mw"
-path="res://.godot/imported/FiniteStateMachine.svg-e73522dd5cc41a5534bd00f4347b88cf.ctex"
+path="res://.godot/imported/FiniteStateMachine.svg-f4728f05bd0ee134fa8a3a61132159ac.ctex"
 metadata={
 "has_editor_variant": true,
 "vram_texture": false
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://addons/behaviour_toolkit/icons/FiniteStateMachine.svg"
-dest_files=["res://.godot/imported/FiniteStateMachine.svg-e73522dd5cc41a5534bd00f4347b88cf.ctex"]
+source_file="res://addons/BehaviorToolkit/addons/behaviour_toolkit/icons/FiniteStateMachine.svg"
+dest_files=["res://.godot/imported/FiniteStateMachine.svg-f4728f05bd0ee134fa8a3a61132159ac.ctex"]
 
 [params]
 

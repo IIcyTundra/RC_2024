@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://ddx7a726xhria"
-path="res://.godot/imported/BTCompositeIntegration.svg-9584b35e5fb929ba98b0a02fb58c84cb.ctex"
+path="res://.godot/imported/BTCompositeIntegration.svg-5c6ad23ff4a8543dfe14952e5b9c4ca0.ctex"
 metadata={
 "has_editor_variant": true,
 "vram_texture": false
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://addons/behaviour_toolkit/icons/BTCompositeIntegration.svg"
-dest_files=["res://.godot/imported/BTCompositeIntegration.svg-9584b35e5fb929ba98b0a02fb58c84cb.ctex"]
+source_file="res://addons/BehaviorToolkit/addons/behaviour_toolkit/icons/BTCompositeIntegration.svg"
+dest_files=["res://.godot/imported/BTCompositeIntegration.svg-5c6ad23ff4a8543dfe14952e5b9c4ca0.ctex"]
 
 [params]
 

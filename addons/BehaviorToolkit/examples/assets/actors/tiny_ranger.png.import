@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://dipfngprca32d"
-path="res://.godot/imported/tiny_ranger.png-8581d28a338be156b8fd04d81f5fd358.ctex"
+path="res://.godot/imported/tiny_ranger.png-bcb95e58c37b0672ea48d7096ad0df7d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://examples/assets/actors/tiny_ranger.png"
-dest_files=["res://.godot/imported/tiny_ranger.png-8581d28a338be156b8fd04d81f5fd358.ctex"]
+source_file="res://addons/BehaviorToolkit/examples/assets/actors/tiny_ranger.png"
+dest_files=["res://.godot/imported/tiny_ranger.png-bcb95e58c37b0672ea48d7096ad0df7d.ctex"]
 
 [params]
 

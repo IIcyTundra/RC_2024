@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://dd8t7dwcj5rwa"
-path="res://.godot/imported/tiny_cyclops.png-16204a1ebf2f035d51fe065609088dfc.ctex"
+path="res://.godot/imported/tiny_cyclops.png-07e58d7d3a775d67ea8bc1e6f3b68a3d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://examples/assets/actors/tiny_cyclops.png"
-dest_files=["res://.godot/imported/tiny_cyclops.png-16204a1ebf2f035d51fe065609088dfc.ctex"]
+source_file="res://addons/BehaviorToolkit/examples/assets/actors/tiny_cyclops.png"
+dest_files=["res://.godot/imported/tiny_cyclops.png-07e58d7d3a775d67ea8bc1e6f3b68a3d.ctex"]
 
 [params]
 
