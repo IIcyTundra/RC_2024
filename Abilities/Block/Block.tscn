@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://5anr3tlfwtbc"]
+
+[ext_resource type="Script" path="res://Abilities/Block/Block.gd" id="1_oy30f"]
+
+[node name="Block" type="Node3D"]
+script = ExtResource("1_oy30f")
