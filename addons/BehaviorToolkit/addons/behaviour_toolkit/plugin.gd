@@ -10,8 +10,8 @@ var _ui_canvas: Control
 var _ui_spatial: Control
 
 
-var _inspector_plugin = preload("res://addons/behaviour_toolkit/inspector_plugin.gd")
-var _toolkit_ui = preload("res://addons/behaviour_toolkit/ui/toolkit_ui.tscn")
+var _inspector_plugin = preload("res://addons/BehaviorToolkit/addons/behaviour_toolkit/inspector_plugin.gd")
+var _toolkit_ui = preload("res://addons/BehaviorToolkit/addons/behaviour_toolkit/ui/toolkit_ui.tscn")
 
 
 func _enter_tree():

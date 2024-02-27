@@ -1,0 +1,10 @@
+[gd_resource type="Theme" load_steps=2 format=3 uid="uid://b7okx8f32mlk6"]
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_hdaki"]
+color = Color(1, 1, 1, 1)
+thickness = 5
+
+[resource]
+GridContainer/constants/h_separation = 1
+GridContainer/constants/v_separation = 1
+Panel/styles/panel = SubResource("StyleBoxLine_hdaki")

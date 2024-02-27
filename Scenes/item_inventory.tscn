@@ -1,0 +1,90 @@
+[gd_scene load_steps=4 format=3 uid="uid://c5ovohn1ltrc1"]
+
+[ext_resource type="Script" path="res://addons/Gameplay_Systems/godot_gameplay_systems/inventory_system/nodes/inventory.gd" id="1_2yggp"]
+[ext_resource type="Theme" uid="uid://b7okx8f32mlk6" path="res://UI Resources/HUDTheme.tres" id="1_yvd2h"]
+[ext_resource type="Texture2D" uid="uid://c8b1c3dfii8cw" path="res://addons/Gameplay_Systems/godot_gameplay_systems/inventory_system/assets/DropNode3D.png" id="2_thbsj"]
+
+[node name="ItemInventory" type="Control"]
+custom_minimum_size = Vector2(550, 200)
+layout_mode = 3
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -275.0
+offset_right = 275.0
+offset_bottom = 200.0
+grow_horizontal = 2
+script = ExtResource("1_2yggp")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -275.0
+offset_right = 275.0
+grow_horizontal = 2
+theme = ExtResource("1_yvd2h")
+
+[node name="GridContainer" type="GridContainer" parent="Panel"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -261.5
+offset_top = 15.0
+offset_right = 261.5
+offset_bottom = 54.0
+grow_horizontal = 2
+theme = ExtResource("1_yvd2h")
+theme_override_constants/h_separation = 5
+columns = 12
+
+[node name="TextureRect" type="TextureRect" parent="Panel/GridContainer"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource("2_thbsj")
+
+[node name="TextureRect2" type="TextureRect" parent="Panel/GridContainer"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource("2_thbsj")
+
+[node name="TextureRect3" type="TextureRect" parent="Panel/GridContainer"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource("2_thbsj")
+
+[node name="TextureRect4" type="TextureRect" parent="Panel/GridContainer"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource("2_thbsj")
+
+[node name="TextureRect5" type="TextureRect" parent="Panel/GridContainer"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource("2_thbsj")
+
+[node name="TextureRect7" type="TextureRect" parent="Panel/GridContainer"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource("2_thbsj")
+
+[node name="TextureRect8" type="TextureRect" parent="Panel/GridContainer"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource("2_thbsj")
