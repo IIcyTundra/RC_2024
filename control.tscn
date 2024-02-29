@@ -1,0 +1,52 @@
+[gd_scene load_steps=4 format=3 uid="uid://bc801ot4hr3sp"]
+
+[ext_resource type="Script" path="res://ProgressBar.gd" id="1_33lej"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dt2rn"]
+bg_color = Color(0.556863, 0.556863, 0.556863, 1)
+skew = Vector2(0.25, 0)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0.0196078, 0.00784314, 0.00392157, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_y4pyt"]
+bg_color = Color(0.6, 0.6, 0.0313726, 1)
+skew = Vector2(0.25, 0)
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PostureBarBackground" type="Panel" parent="."]
+clip_children = 2
+layout_mode = 0
+offset_left = 432.0
+offset_top = 512.0
+offset_right = 795.0
+offset_bottom = 580.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_dt2rn")
+
+[node name="ProgressBar" type="ProgressBar" parent="PostureBarBackground"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -178.5
+offset_top = -31.0
+offset_right = 178.5
+offset_bottom = 31.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/fill = SubResource("StyleBoxFlat_y4pyt")
+step = 0.25
+value = 23.0
+rounded = true
+script = ExtResource("1_33lej")
