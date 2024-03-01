@@ -1,19 +1,80 @@
-[gd_scene load_steps=4 format=3 uid="uid://bc801ot4hr3sp"]
+[gd_scene load_steps=12 format=3 uid="uid://bc801ot4hr3sp"]
 
 [ext_resource type="Script" path="res://ProgressBar.gd" id="1_33lej"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dt2rn"]
 bg_color = Color(0.556863, 0.556863, 0.556863, 1)
 skew = Vector2(0.25, 0)
-border_width_left = 3
-border_width_top = 3
-border_width_right = 3
-border_width_bottom = 3
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
 border_color = Color(0.0196078, 0.00784314, 0.00392157, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wo5iq"]
+bg_color = Color(0.878431, 0.886275, 0.905882, 1)
+skew = Vector2(0.25, 0)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_y4pyt"]
 bg_color = Color(0.6, 0.6, 0.0313726, 1)
 skew = Vector2(0.25, 0)
+corner_radius_top_left = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="Theme" id="Theme_t3pq2"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_r70tn"]
+bg_color = Color(0.529412, 0.780392, 0.447059, 0)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qh26p"]
+bg_color = Color(0.67451, 0.341176, 0.266667, 0.223529)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fhdn2"]
+bg_color = Color(0.909804, 0.14902, 0.203922, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xmqh2"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5kdpn"]
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+corner_detail = 7
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1euge"]
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
 
 [node name="Control" type="Control"]
 layout_mode = 3
@@ -25,28 +86,114 @@ grow_vertical = 2
 
 [node name="PostureBarBackground" type="Panel" parent="."]
 clip_children = 2
-layout_mode = 0
-offset_left = 432.0
-offset_top = 512.0
-offset_right = 795.0
-offset_bottom = 580.0
+layout_direction = 2
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.493
+anchor_top = 0.5
+anchor_right = 0.493
+anchor_bottom = 0.5
+offset_left = -170.936
+offset_top = 205.0
+offset_right = 191.064
+offset_bottom = 253.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_dt2rn")
 
-[node name="ProgressBar" type="ProgressBar" parent="PostureBarBackground"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -178.5
-offset_top = -31.0
-offset_right = 178.5
-offset_bottom = 31.0
+[node name="PostureBar" type="ProgressBar" parent="PostureBarBackground"]
+show_behind_parent = true
+layout_mode = 2
+anchor_right = 0.199
+anchor_bottom = 0.548
+offset_left = 2.0
+offset_top = 2.0
+offset_right = 287.962
+offset_bottom = 19.696
 grow_horizontal = 2
 grow_vertical = 2
+pivot_offset = Vector2(1, 1)
+theme_override_styles/background = SubResource("StyleBoxFlat_wo5iq")
 theme_override_styles/fill = SubResource("StyleBoxFlat_y4pyt")
 step = 0.25
-value = 23.0
+value = 10.0
 rounded = true
+show_percentage = false
 script = ExtResource("1_33lej")
+
+[node name="Label" type="Label" parent="PostureBarBackground/PostureBar"]
+layout_mode = 0
+offset_right = 358.0
+offset_bottom = 44.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "POSTURE"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Health" type="Panel" parent="."]
+layout_mode = 0
+offset_left = 53.0
+offset_top = 48.0
+offset_right = 112.0
+offset_bottom = 249.0
+theme = SubResource("Theme_t3pq2")
+theme_override_styles/panel = SubResource("StyleBoxFlat_r70tn")
+
+[node name="ProgressBar" type="ProgressBar" parent="Health"]
+layout_mode = 0
+offset_left = 2.0
+offset_top = 2.0
+offset_right = 57.0
+offset_bottom = 199.0
+theme_override_styles/background = SubResource("StyleBoxFlat_qh26p")
+theme_override_styles/fill = SubResource("StyleBoxFlat_fhdn2")
+step = 20.0
+value = 20.0
+fill_mode = 3
+show_percentage = false
+
+[node name="health_qtr2" type="Panel" parent="Health"]
+offset_top = 116.0
+offset_right = 59.0
+offset_bottom = 160.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_xmqh2")
+
+[node name="health_qtr3" type="Panel" parent="Health"]
+offset_top = 74.0
+offset_right = 59.0
+offset_bottom = 118.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_xmqh2")
+
+[node name="health_qtr4" type="Panel" parent="Health"]
+offset_top = 35.0
+offset_right = 59.0
+offset_bottom = 76.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_xmqh2")
+
+[node name="Item_Box_1" type="Panel" parent="."]
+offset_left = 190.0
+offset_top = 554.0
+offset_right = 260.0
+offset_bottom = 624.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_5kdpn")
+
+[node name="Label" type="Label" parent="Item_Box_1"]
+layout_mode = 0
+offset_left = 15.0
+offset_top = -23.0
+offset_right = 55.0
+text = "TWO"
+horizontal_alignment = 1
+
+[node name="Item_Box_2" type="Panel" parent="."]
+layout_mode = 0
+offset_left = 66.0
+offset_top = 554.0
+offset_right = 136.0
+offset_bottom = 624.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_1euge")
+
+[node name="Label" type="Label" parent="Item_Box_2"]
+offset_left = 15.0
+offset_top = -23.0
+offset_right = 55.0
+text = "ONE"
+horizontal_alignment = 1
