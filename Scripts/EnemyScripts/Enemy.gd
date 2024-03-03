@@ -1,7 +1,6 @@
-class_name BasicEnemy
-extends CharacterBody3D
+class_name Enemy
+extends Entity
 
-const SPEED = 2
 const ATTACK_RANGE = 1.5
 
 @onready
@@ -9,18 +8,24 @@ var state_machine = $state_machine
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 
+#simple function that will deal damage to the entity
+func takeDamage(damage):
+	if current_HP<damage:
+		current_HP = 0
+		queue_free()
+	else:
+		current_HP -= damage
 #Function that will add velocity to object in order to follow player
 func followPlayer():
 	#getting the player for position values
 	var player = get_tree().get_nodes_in_group("PlayerGroup")[0]
-	
 	var xdist = player.position.x - position.x
 	var zdist = player.position.z - position.z
 	#use pythag to find the distance between enemy & player
 	#var playerDist = sqrt(xdist*xdist + zdist*zdist)
 	#calculates velocity based on given speed
-	var chaseVelx = cos(atan(zdist/xdist))* SPEED * (xdist/abs(xdist))
-	var chaseVelz = cos(atan(xdist/zdist))* SPEED * (zdist/abs(zdist))
+	var chaseVelx = cos(atan(zdist/xdist))* current_speed * (xdist/abs(xdist))
+	var chaseVelz = cos(atan(xdist/zdist))* current_speed * (zdist/abs(zdist))
 	#print("x:"+str(xdist)+" | z:"+str(zdist)+" | dist:"+str(playerDist)+"\nChase X: "+str(chaseVelx)+" | Chase Z:"+str(chaseVelz))
 	velocity.x = chaseVelx
 	velocity.z = chaseVelz
@@ -39,19 +44,12 @@ func isInAttackRange():
 		return true
 	else:
 		return false
-
-#func _physics_process(delta):
-#	if not is_on_floor():
-#		velocity.y -= gravity * delta
-	
-	
-	
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	# Initialize the state machine, passing a reference of the player to the states,
 	# that way they can move and react accordingly
 	state_machine.init(self)
-
+	
 func _unhandled_input(event: InputEvent) -> void:
 	state_machine.process_input(event)
 

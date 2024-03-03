@@ -15,9 +15,18 @@ run/main_scene="res://node_3d.tscn"
 config/features=PackedStringArray("4.2", "Forward Plus")
 config/icon="res://icon.svg"
 
+[autoload]
+
+TurnManager="*res://addons/Gameplay_Systems/godot_gameplay_systems/turn_based/./autoloads/turn_manager.gd"
+DialogueManager="*res://addons/dialogue_manager/dialogue_manager.gd"
+
 [dotnet]
 
 project/assembly_name="RC_2024"
+
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/BehaviorToolkit/addons/behaviour_toolkit/plugin.cfg", "res://addons/Gameplay_Systems/godot_gameplay_systems/plugin.cfg", "res://addons/dialogue_manager/plugin.cfg")
 
 [input]
 

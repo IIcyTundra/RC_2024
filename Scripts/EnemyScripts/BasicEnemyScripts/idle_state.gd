@@ -9,6 +9,8 @@ func enter() -> void:
 	super()
 	parent.velocity.x = 0
 	parent.velocity.z = 0
+	var mesh: CSGMesh3D = parent.get_child(1)
+	
 	#parent.velocity.y = 0
 
 
