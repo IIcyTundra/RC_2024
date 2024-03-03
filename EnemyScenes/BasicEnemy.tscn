@@ -1,4 +1,6 @@
-[gd_scene load_steps=4 format=3 uid="uid://cm6hmohf4xs7b"]
+[gd_scene load_steps=5 format=3 uid="uid://cm6hmohf4xs7b"]
+
+[ext_resource type="Script" path="res://Scripts/EnemyScripts/Enemy.gd" id="1_fgkde"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_tx6tu"]
 
@@ -10,6 +12,7 @@ albedo_color = Color(0, 0.458824, 0.807843, 1)
 [node name="Node3D" type="Node3D"]
 
 [node name="BasicEnemy" type="CharacterBody3D" parent="."]
+script = ExtResource("1_fgkde")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="BasicEnemy"]
 shape = SubResource("CapsuleShape3D_tx6tu")
@@ -17,11 +20,3 @@ shape = SubResource("CapsuleShape3D_tx6tu")
 [node name="CSGMesh3D" type="CSGMesh3D" parent="BasicEnemy"]
 material_override = SubResource("StandardMaterial3D_a52tl")
 mesh = SubResource("CapsuleMesh_yrvp6")
-
-[node name="state_machine" type="Node" parent="BasicEnemy"]
-
-[node name="idle" type="Node" parent="BasicEnemy/state_machine"]
-
-[node name="chase" type="Node" parent="BasicEnemy/state_machine"]
-
-[node name="fall" type="Node" parent="BasicEnemy/state_machine"]

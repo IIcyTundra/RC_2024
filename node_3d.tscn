@@ -1,7 +1,8 @@
-[gd_scene load_steps=9 format=3 uid="uid://bkjmhr3f1jr5t"]
+[gd_scene load_steps=10 format=3 uid="uid://bkjmhr3f1jr5t"]
 
 [ext_resource type="Script" path="res://CharacterBody3D.gd" id="1_haw3t"]
 [ext_resource type="Script" path="res://Scripts/EnemyScripts/BasicEnemyScripts/BasicEnemySpawner.gd" id="2_va2vc"]
+[ext_resource type="Script" path="res://Scripts/EnemyScripts/EnemyDebugScript.gd" id="3_n15xq"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_i6h3w"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -68,5 +69,8 @@ script = ExtResource("2_va2vc")
 
 [node name="Timer" type="Timer" parent="BasicEnemySpawner"]
 autostart = true
+
+[node name="EnemyDebugScript" type="Node" parent="."]
+script = ExtResource("3_n15xq")
 
 [connection signal="timeout" from="BasicEnemySpawner/Timer" to="BasicEnemySpawner" method="_on_timer_timeout"]

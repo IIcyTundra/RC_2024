@@ -4,7 +4,7 @@ extends Entity
 const ATTACK_RANGE = 1.5
 
 @onready
-var state_machine = $state_machine
+#var state_machine = $state_machine
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 
@@ -48,16 +48,17 @@ func isInAttackRange():
 func _ready() -> void:
 	# Initialize the state machine, passing a reference of the player to the states,
 	# that way they can move and react accordingly
-	state_machine.init(self)
+	add_to_group("Enemys")
+	#state_machine.init(self)
 	
-func _unhandled_input(event: InputEvent) -> void:
-	state_machine.process_input(event)
+#func _unhandled_input(event: InputEvent) -> void:
+#	state_machine.process_input(event)
 
-func _physics_process(delta: float) -> void:
-	state_machine.process_physics(delta)
+#func _physics_process(delta: float) -> void:
+	#state_machine.process_physics(delta)
 
-func _process(delta: float) -> void:
-	state_machine.process_frame(delta)
+#func _process(delta: float) -> void:
+#	state_machine.process_frame(delta)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
