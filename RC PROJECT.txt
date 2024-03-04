@@ -1,0 +1,65 @@
+RC PROJECT:
+
+Universe:
+Cyberpunk like 20XX (Future)
+-ION/// Productions(inc.) is a mainly military company where their HQ is located downtown of a neon lit city
+--ION/// Is mainly focus on robotic military capabilities, enforcing robotic entities to replace humans on war fronts
+---(Hypothetically) funded in response to recent war
+--Robots should integrate easily with human ranks (soldier, medic) able to work with humans and their own kind
+---ION/// has a medical branch with streamlined creation of human cells(Ex: tech to easily patch one's open wounds)
+
+-an Accident at ION/// Productions(inc.) where scientists wanted to reach greater integration with technology with help of AI, AI had hard coded mistake where it designated enemies quickly.
+--AI is able to reprogram robotic entities, used streamlined creation of human cells to give robotic entities a more almagimation look to give the different classes a unique look
+---AI not able to be reprogrammed as it quickly took hold of facilities and staff
+
+-The event left the town evacuated while ION/// made a deal with the government to clean up the mess since they still want the AI for research purposes.
+
+
+Enemies:
+Melee enemy:
+-(function) Mindless soldier crawling towards player at all times, mindlessly attacks player aswell
+-(look) Organic parts reinforce soldier's arms, allowing decent manuverability while crawling
+-(lore) reprogrammed prototypes that were trashed development wise
+
+Ranged enemy:
+-(function) Soldier that attempts to keep distance from player to fire projectiles, unable to move when firing a burst of 3 projectile shots to player, moves when in a AoE range of player
+-(look) Normal humanoid robot which organic parts welds an arm cannon to the entity
+-(lore) The streamline Robot to overtake roles from Human soldiers, mainly known to be implemented in battlefield frontlines, Private Military Contractors and large corporation security
+
+Sniper enemy:
+-(function) Doesn't move from predetermined location set on a wall, shines lazer(green) onto player with line of sight, 2 seconds until lazer starts blinking (green & red), the tracking stops, and after 1 second, fires a hitscan shot
+-(look) More skinny robot but capable of holding large caliber sniper, organics weld robot's lower body to floor
+-(lore) Assassin branch from normal soldier robot, tasked normally to be on standbye and activate when specified target is shown(acts like a trap), known for corporate hits & battlefield snipers
+
+Healer enemey:
+-(function type 1) moves to high priority entity and constantly heals it(charger over ranged, ranged over sniper, ranged over melee)
+-(function type 2) moves to closest entity and provides a AOE of hyperarmor
+-(look) Destiny Servitor looking, should be more minimalist in terms of size, type 1 should be yellow LEDs, type 2 should be purple LEDs, no organics
+-(lore) part of medical branch, should be able to provide emergency treatment to humans, repair to robotic entities tied to ION///, seen in military hospitals and frontlines
+
+Charger enemy:
+-(function) when having Line of sight to player & path is clear, charges in a straight line to player, when hitting a wall, readjusts and charges to player's position again.(think WWE bouncing off of arena walls)
+-(look) 2 times the size of a normal soldier(ranged enemy), organics reinforce whole body, making it look like a L4D tank
+-(lore) A robot meant to function as a transport entity, manuvering through many types of landfill and environments carrying tons of luggage, Seen only for military use & transportation
+
+
+Player (NVY Units):
+-An ION/// security tasked with cleaning up the mess the AI made, enter the HQ's R&D to secure AI target's storage
+-Player characters are artifically enhanced with combat tools for dealing specifically with robotic entities
+--Normal weapons like firearms arn't usually effected against robotic enemies, special weaponry is used instead like metal cutting blades, blunt trauma, & explosives
+
+Light:
+(function) fast mobility and attacks 4 dashes, can dash out of light attacks, focus on single target damage and group interruption
+(look) Heavily enhanced skinny woman (showcase artifical spine), mantis arm blades that can retract, artificial from bottom up to upper body showcasing great agility
+(lore) codename: Artemis, woman who was previously a combat medic who scored a concussion in battle and lost her sanity when many fell, same with her family, leading her to no real motive anymore and a depressive life, throwing away her life and vowing it to ION/// to see what the human body is capable of augmentation wise to better help those who lost parts of themselves as she has seen many from the war.
+
+Medium:
+(function) very technical but basic katana weilding soldier, great versitility, 2 dashes, functionality of combo enders has different properties
+(look) Right arm has been artifically replaced, cloaked duelist, clothed except for right arm, showcasing artifical limb. Soldier build
+glowing katana with high tech sheath on back.
+(lore) codename: Hephaestus, Street boy who grew up in same city with ION/// HQ and tackled traditional fighting arts, when he got into altercations with a street gang, he was kidnapped and his right arm chopped off from an escape attempt, when the gang was raided by police, he was released and was offered a clinical trial at ION/// to replace his arm, with no real educational skill, Hephaestus sticked with ION///'s emergency security team with his combat skills
+
+Heavy:
+(function) brute force specialist with focus on AOE attacks using a large club, no dashes; instead a charge w/ hyperarmor, zone attack meant for high damage
+(look) large bodybuilder who isn't artifcally augmented, but is assisted with an exoskeleton, a large and heavy stun club can be seen on the back, it attaches to the exoskeleton
+(lore) codename: Atlas, orphan who had a traumatic childhood was left with no choice but to improve themselves, He searched out bodybuilding with support from orphanage who took him in late, He was orphaned at a late age and vowed to be better than everyone who has wronged him, recently joined ION///'s emergency security team to climb the ladder.
