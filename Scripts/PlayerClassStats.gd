@@ -8,5 +8,5 @@ const ABILITY_SLOT_MAX : int = 3
 @export var base_SP : int 
 @export var base_AP : int
 @export var base_speed : int 
-@export var base_limit_break : int
+@export var base_stamina : int
 @export var abilities : Array = []
