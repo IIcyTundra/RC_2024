@@ -1,7 +1,8 @@
-[gd_scene load_steps=8 format=3 uid="uid://dver6tci46wav"]
+[gd_scene load_steps=9 format=3 uid="uid://bfpkck3qxjtse"]
 
 [ext_resource type="Texture2D" uid="uid://dnga7mdr4307" path="res://Textures/kenney-prototype-textures-db6622fbe90621eed70a0b417ae8d97281f45e6c/addons/kenney_prototype_textures/dark/texture_08.png" id="1_a45r6"]
-[ext_resource type="PackedScene" uid="uid://cgsis1rgndur3" path="res://Scenes/Player.tscn" id="2_mqiqs"]
+[ext_resource type="PackedScene" uid="uid://bsvb6m37hksfw" path="res://Scenes/post_processing.tscn" id="1_f0jjt"]
+[ext_resource type="PackedScene" uid="uid://cgsis1rgndur3" path="res://Scenes/Player.tscn" id="3_nt4jp"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_pmwwu"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -26,6 +27,8 @@ uv1_scale = Vector3(80, 20, 20)
 
 [node name="Map1" type="Node3D"]
 
+[node name="PostProcessing" parent="." instance=ExtResource("1_f0jjt")]
+
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_4um1s")
 
@@ -39,5 +42,5 @@ use_collision = true
 size = Vector3(40, 1, 40)
 material = SubResource("StandardMaterial3D_sh6ea")
 
-[node name="Player" parent="." instance=ExtResource("2_mqiqs")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
+[node name="Player" parent="." instance=ExtResource("3_nt4jp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5, 0)

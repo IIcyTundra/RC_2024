@@ -6,7 +6,7 @@
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_7qnsf"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_nacjy"]
-albedo_color = Color(0.764706, 0, 0.376471, 1)
+albedo_color = Color(0.482353, 0.0392157, 1, 1)
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_nxxh8"]
 
@@ -28,4 +28,5 @@ transform = Transform3D(0.707107, -0.5, 0.5, 0, 0.707107, 0.707107, -0.707107, -
 [node name="Camera3D" type="Camera3D" parent="Anchor"]
 projection = 1
 fov = 90.0
-size = 10.0
+size = 15.0
+near = 0.01

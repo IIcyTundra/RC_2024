@@ -1,4 +1,17 @@
-[gd_scene format=3 uid="uid://bwfy10cjlg4di"]
+[gd_scene load_steps=5 format=3 uid="uid://bsvb6m37hksfw"]
+
+[ext_resource type="Shader" path="res://Scripts/Shaders/TrueDither.gdshader" id="1_nqk84"]
+[ext_resource type="Texture2D" uid="uid://bj310r6nmnxnl" path="res://Textures/Color_Palettes/Shader1.png" id="2_mdebv"]
+[ext_resource type="Texture2D" uid="uid://bby0f6oqt478p" path="res://Textures/DitherTexures/bayer2.png" id="3_edy2x"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_fcqxd"]
+shader = ExtResource("1_nqk84")
+shader_parameter/u_bit_depth = 2
+shader_parameter/u_contrast = 0.0
+shader_parameter/u_offset = 0.0
+shader_parameter/u_dither_size = 1
+shader_parameter/u_dither_tex = ExtResource("3_edy2x")
+shader_parameter/u_color_tex = ExtResource("2_mdebv")
 
 [node name="PostProcessing" type="Control"]
 layout_mode = 3
@@ -8,7 +21,8 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="ColorRect" type="ColorRect" parent="."]
+[node name="Dither" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_fcqxd")
 clip_contents = true
 layout_mode = 1
 anchors_preset = 15
@@ -16,4 +30,3 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0, 0, 0, 0)

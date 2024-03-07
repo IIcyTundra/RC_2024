@@ -20,3 +20,5 @@ shape = SubResource("CapsuleShape3D_tx6tu")
 [node name="CSGMesh3D" type="CSGMesh3D" parent="BasicEnemy"]
 material_override = SubResource("StandardMaterial3D_a52tl")
 mesh = SubResource("CapsuleMesh_yrvp6")
+
+[node name="NavigationAgent3D" type="NavigationAgent3D" parent="BasicEnemy"]
