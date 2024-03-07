@@ -151,24 +151,28 @@ fill_mode = 3
 show_percentage = false
 
 [node name="health_qtr2" type="Panel" parent="Health"]
+layout_mode = 0
 offset_top = 116.0
 offset_right = 59.0
 offset_bottom = 160.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_xmqh2")
 
 [node name="health_qtr3" type="Panel" parent="Health"]
+layout_mode = 0
 offset_top = 74.0
 offset_right = 59.0
 offset_bottom = 118.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_xmqh2")
 
 [node name="health_qtr4" type="Panel" parent="Health"]
+layout_mode = 0
 offset_top = 35.0
 offset_right = 59.0
 offset_bottom = 76.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_xmqh2")
 
 [node name="Item_Box_1" type="Panel" parent="."]
+layout_mode = 0
 offset_left = 190.0
 offset_top = 554.0
 offset_right = 260.0
@@ -192,6 +196,7 @@ offset_bottom = 624.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_1euge")
 
 [node name="Label" type="Label" parent="Item_Box_2"]
+layout_mode = 0
 offset_left = 15.0
 offset_top = -23.0
 offset_right = 55.0
