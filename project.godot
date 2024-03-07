@@ -26,7 +26,11 @@ project/assembly_name="RC_2024"
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/BehaviorToolkit/addons/behaviour_toolkit/plugin.cfg", "res://addons/Gameplay_Systems/godot_gameplay_systems/plugin.cfg", "res://addons/dialogue_manager/plugin.cfg")
+enabled=PackedStringArray("res://addons/BehaviorToolkit/addons/behaviour_toolkit/plugin.cfg", "res://addons/Gameplay_Systems/godot_gameplay_systems/plugin.cfg")
+
+[filesystem]
+
+import/fbx/enabled=false
 
 [input]
 
