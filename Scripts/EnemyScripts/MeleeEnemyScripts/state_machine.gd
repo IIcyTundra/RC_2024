@@ -1,13 +1,13 @@
 extends Node
 
 @export
-var starting_state: State
+var starting_state: AZState
 
-var current_state: State
+var current_state: AZState
 
 # Initialize the state machine by giving each child state a reference to the
 # parent object it belongs to and enter the default starting_state.
-func init(parent: BasicEnemy) -> void:
+func init(parent: MeleeEnemy) -> void:
 	for child in get_children():
 		child.parent = parent
 
@@ -15,7 +15,7 @@ func init(parent: BasicEnemy) -> void:
 	change_state(starting_state)
 
 # Change to the new state by first calling any exit logic on the current state.
-func change_state(new_state: State) -> void:
+func change_state(new_state: AZState) -> void:
 	if current_state:
 		current_state.exit()
 
@@ -26,7 +26,9 @@ func change_state(new_state: State) -> void:
 # handling state changes as needed.
 func process_physics(delta: float) -> void:
 	var new_state = current_state.process_physics(delta)
+	#print("process" + str(new_state))
 	if new_state:
+		#print("If Taken")
 		change_state(new_state)
 
 func process_input(event: InputEvent) -> void:

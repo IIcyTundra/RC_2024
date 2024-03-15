@@ -1,6 +1,6 @@
 extends Node3D
 
-var enemy_scene = preload("res://EnemyScenes/BasicEnemy.tscn")
+var enemy_scene = preload("res://EnemyScenes/MeleeEnemy.tscn")
 
 func _on_timer_timeout():
 	var enemy = enemy_scene.instantiate()

@@ -1,9 +1,9 @@
-extends State
+extends AZState
 
 @export
-var fall_state: State
+var fall_state: AZState
 @export
-var chase_state: State
+var chase_state: AZState
 
 func enter() -> void:
 	super()
@@ -15,11 +15,11 @@ func enter() -> void:
 
 
 
-func process_physics(delta: float) -> State:
-	parent.velocity.y -= gravity * delta
+func process_physics(delta: float) -> AZState:
+	#parent.velocity.y -= gravity * delta
 	parent.move_and_slide()
-	print("idle state")
-	print("x: "+str(parent.position.x)+" | y: "+str(parent.position.y))
+	#print("idle state")
+	#print("x: "+str(parent.position.x)+" | y: "+str(parent.position.y))
 	if not parent.is_on_floor():
 		return fall_state
 	if not parent.isInAttackRange() && parent.is_on_floor():

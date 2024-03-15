@@ -1,0 +1,38 @@
+[gd_scene load_steps=9 format=3 uid="uid://dt60ceseneevn"]
+
+[ext_resource type="Script" path="res://Scripts/EnemyScripts/MeleeEnemyScripts/MeleeEnemy.gd" id="1_n3e4u"]
+[ext_resource type="Script" path="res://Scripts/EnemyScripts/MeleeEnemyScripts/state_machine.gd" id="2_vp8g7"]
+[ext_resource type="Script" path="res://Scripts/EnemyScripts/MeleeEnemyScripts/fall_state.gd" id="3_tlwli"]
+[ext_resource type="Script" path="res://Scripts/EnemyScripts/MeleeEnemyScripts/idle_state.gd" id="4_rwx3v"]
+[ext_resource type="Script" path="res://Scripts/EnemyScripts/MeleeEnemyScripts/chase_state.gd" id="5_umm8t"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_4uxlg"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fi0xk"]
+albedo_color = Color(0, 0.458824, 0.807843, 1)
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_ahcqm"]
+
+[node name="MeleeEnemyScene" type="Node3D"]
+
+[node name="MeleeEnemy" type="CharacterBody3D" parent="."]
+script = ExtResource("1_n3e4u")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="MeleeEnemy"]
+shape = SubResource("CapsuleShape3D_4uxlg")
+
+[node name="CSGMesh3D" type="CSGMesh3D" parent="MeleeEnemy"]
+material_override = SubResource("StandardMaterial3D_fi0xk")
+mesh = SubResource("CapsuleMesh_ahcqm")
+
+[node name="state_machine" type="Node" parent="MeleeEnemy"]
+script = ExtResource("2_vp8g7")
+
+[node name="fall_state" type="Node" parent="MeleeEnemy/state_machine"]
+script = ExtResource("3_tlwli")
+
+[node name="idle_state" type="Node" parent="MeleeEnemy/state_machine"]
+script = ExtResource("4_rwx3v")
+
+[node name="chase_state" type="Node" parent="MeleeEnemy/state_machine"]
+script = ExtResource("5_umm8t")
