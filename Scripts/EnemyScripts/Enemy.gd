@@ -29,7 +29,7 @@ func followPlayer():
 	#print("x:"+str(xdist)+" | z:"+str(zdist)+" | dist:"+str(playerDist)+"\nChase X: "+str(chaseVelx)+" | Chase Z:"+str(chaseVelz))
 	velocity.x = chaseVelx
 	velocity.z = chaseVelz
-	
+	rotation.y = atan2(chaseVelx,chaseVelz)
 	#print("Lerp value:"+str(lerp(player.position.x,player.position.y,player.position.z)))
 func isInAttackRange():
 	#get player
