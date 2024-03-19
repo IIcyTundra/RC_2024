@@ -15,7 +15,7 @@ func _unhandled_input(event: InputEvent) -> void:
 
 func _physics_process(delta: float) -> void:
 	var player = get_tree().get_nodes_in_group("PlayerGroup")[0]
-	print("Player Pos:" + str(player.position) + "En Pos:" + str(position))
+
 	state_machine.process_physics(delta)
 
 func _process(delta: float) -> void:

@@ -4,9 +4,18 @@ extends AZState
 var idle_state: AZState
 @export
 var chase_state: AZState
-
+@export
+var melee_attack_state: AZState
+@onready
+var anim_tree = $"../../MeleeEnemyAni/AnimationTree"
 func enter() -> void:
 	super()
+	anim_tree.set("parameters/conditions/isFalling",true)
+	
+func exit() -> void:
+	super.exit()
+	anim_tree.set("parameters/conditions/isFalling",false)
+	
 
 
 
