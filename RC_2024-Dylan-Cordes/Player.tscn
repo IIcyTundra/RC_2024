@@ -31,7 +31,7 @@ albedo_color = Color(0.776471, 0, 0.215686, 1)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00222456, 1.13523, -0.00448203)
 script = ExtResource("1_l8fam")
 player_stats = SubResource("Resource_6fii1")
-current_HP = 1
+current_HP = 10
 max_speed = 10
 
 [node name="hitbox & camera rig" type="CollisionShape3D" parent="."]
@@ -54,4 +54,10 @@ transform = Transform3D(0.0969919, 0, 0, 0, 0.127893, 0, 0, 0, 0.0824079, 0.0922
 material_override = SubResource("StandardMaterial3D_kop3f")
 mesh = SubResource("SphereMesh_1why7")
 
-[node name="Timer" type="Timer" parent="."]
+[node name="InitialZoneAttackBuffer" type="Timer" parent="."]
+wait_time = 0.128
+one_shot = true
+
+[node name="RushComboBuffer" type="Timer" parent="."]
+process_callback = 0
+one_shot = true

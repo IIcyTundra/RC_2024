@@ -12,19 +12,15 @@ var gravityNorm = ProjectSettings.get_setting("physics/3d/default_gravity")
 var dashNum = 2
 var medRoll = 15
 
-const initialAttackBuffer = 300
-const lightAttackTime = 1000
-var lftClickTime = 0
-var rgtClickTime = 0
-enum PlayerState{
-	Idle,
-	Light,
-	Heavy,
-	Zone
-}
-var lightCounter = 1;
-var Buffer = false;
-var currentAttack = PlayerState.Idle
+
+var combo = 0
+var zoneBuffer: Timer
+const ZONE_BUFFER_TIME = .3
+var rushComboBuffer: Timer
+#zone check, ignore
+var lef = false
+var rig = false
+var animStart = false
 
 func gravity(delta):
 	if not is_on_floor():
@@ -33,6 +29,8 @@ func gravity(delta):
 func _ready():
 	sloted_abilities.resize(player_stats.ABILITY_SLOT_MAX)
 	Input.MOUSE_MODE_HIDDEN
+	zoneBuffer = $InitialZoneAttackBuffer
+	rushComboBuffer = $RushComboBuffer
 	#THIS IS COMMENTED OUT SINCE IT WILL NOT RUN ON MY BUILD, IDK WHY, WILL FIX WHEN PLAYER COMBAT IS COMPLETE
 #	sloted_abilities.resize(player_stats.ABILITY_SLOT_MAX)
 	#if(player_stats.abilities != null && player_stats.abilities.size() <= player_stats.ABILITY_SLOT_MAX):
@@ -42,32 +40,22 @@ func _ready():
 			#i += 1
 	#else:
 		#push_error("Ability slots are either NULL, or exceeds the current maximum")
-func _process(delta: float) -> void:
-	var current_time = Time.get_unix_time_from_system() *1000
-	
-	
+func _process(delta):
 	if Input.is_action_just_pressed("Light"):
-		if currentAttack == PlayerState.Light:
-			lightCounter += 1
-			Buffer = true
-			if(lightCounter > 4):
-				lightCounter = 1
-			print("chain attack - ", lightCounter)
-		elif currentAttack == PlayerState.Idle:
-			currentAttack = PlayerState.Light
-			lftClickTime = current_time
-			lightCounter = 1
-			print("light 1")
-		elif currentAttack != PlayerState.Idle:
-			pass
-			
+		lef = true
+		zoneBuffer.start()
+		animStart = true
+		print("lftclk")
 	if Input.is_action_just_pressed("Heavy"):
-		if currentAttack == PlayerState.Idle:
-			pass
-		
-	
+		rig = true
+		zoneBuffer.start()
+		animStart = true
+		print("rgtclk")
+	if Input.is_action_just_pressed("zone"):
+		zone_attack()                              
 	if(current_HP <= 0):
 		player_death()
+		
 	if Input.is_action_just_pressed("ability_1"):
 		if sloted_abilities[0] != null:
 			sloted_abilities[0].execute()
@@ -108,6 +96,13 @@ func _physics_process(delta):
 	
 	move_and_slide()
 
+func _on_timer_timeout():
+	if lef == true and rig == false:
+		light_attack_start()
+	elif rig == true and lef == false:
+		heavy_attack()
+	elif rig == true and lef == true:
+		zone_attack()
 
 func look_at_cursor():
 	#horizontal plane, no looking up or down
@@ -130,5 +125,25 @@ func look_at_cursor():
 func player_death():
 	print("dead")
 
-func light_attack():
-	pass
+func zone_attack():
+	print("zone ")
+
+func light_attack_start():
+	combo += 1
+	if(combo <= 4):
+		print("light: ",combo)
+	else:
+		print("Light Not Used")
+
+func heavy_attack():
+	if combo == 0:
+		print("heavy")
+	elif combo == 1:
+		print("heavy end 1")
+	elif combo == 2:
+		print("heavy end 2")
+	elif combo == 3:
+		print("heavy end 3")
+	else:
+		print("heavy end 4")
+	combo = 0
