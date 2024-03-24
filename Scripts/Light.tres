@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="Player_Base_Stats" load_steps=2 format=3 uid="uid://bac0glrta34un"]
+
+[ext_resource type="Script" path="res://Scripts/PlayerClassStats.gd" id="1_fevtn"]
+
+[resource]
+script = ExtResource("1_fevtn")
+player_name = "Light Character"
+player_class = "Light"
+base_HP = 0
+base_SP = 0
+base_AP = 0
+base_speed = 0
+base_stamina = 0
+abilities = ["Block", "Dash"]

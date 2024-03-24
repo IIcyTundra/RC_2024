@@ -1,0 +1,21 @@
+[gd_scene load_steps=3 format=3 uid="uid://7ojeovwgviqr"]
+
+[ext_resource type="PackedScene" uid="uid://c1dhpc8htqhe0" path="res://control1.tscn" id="1_b2ded"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_23qjc"]
+albedo_color = Color(0.941176, 0.486275, 0.45098, 1)
+
+[node name="Node3D" type="Node3D"]
+
+[node name="CSGBox3D" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.144151, 0, 0)
+size = Vector3(20, 1, 20)
+material = SubResource("StandardMaterial3D_23qjc")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(0.707107, -0.5, 0.5, 0, 0.707107, 0.707107, -0.707107, -0.5, 0.5, 11.8103, 17.3389, 14.6309)
+projection = 1
+fov = 90.0
+size = 22.905
+
+[node name="Control" parent="Camera3D" instance=ExtResource("1_b2ded")]

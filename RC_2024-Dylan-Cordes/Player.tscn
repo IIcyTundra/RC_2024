@@ -1,0 +1,42 @@
+[gd_scene load_steps=7 format=3 uid="uid://cgsis1rgndur3"]
+
+[ext_resource type="Script" path="res://Scripts/PlayerCharacterBase.gd" id="1_l8fam"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_lwy7u"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qxl0g"]
+albedo_color = Color(0.764706, 0, 0.376471, 1)
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_hytxs"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_kop3f"]
+render_priority = 1
+albedo_color = Color(0.776471, 0, 0.215686, 1)
+
+[sub_resource type="SphereMesh" id="SphereMesh_1why7"]
+
+[node name="Player" type="CharacterBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00222456, 1.13523, -0.00448203)
+script = ExtResource("1_l8fam")
+
+[node name="hitbox & camera rig" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_lwy7u")
+
+[node name="Camera3D" type="Camera3D" parent="hitbox & camera rig"]
+transform = Transform3D(0.966075, -0.197841, 0.166008, 0, 0.642788, 0.766044, -0.258263, -0.740056, 0.620981, 1.83498, 7.26995, 6.72873)
+fov = 93.6
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
+material_override = SubResource("StandardMaterial3D_qxl0g")
+mesh = SubResource("CapsuleMesh_hytxs")
+
+[node name="placement_weapon" type="CSGBox3D" parent="MeshInstance3D2"]
+transform = Transform3D(0.0783067, 0.19076, 0.10245, 1.28885, 0.020392, -0.148547, -0.676644, 0.0609176, -0.271091, 0.623431, 0.322087, -0.434964)
+size = Vector3(1, 0.187012, 0.294067)
+
+[node name="cursor" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.0969919, 0, 0, 0, 0.127893, 0, 0, 0, 0.0824079, 0.0922849, 0.345043, -1.78978)
+material_override = SubResource("StandardMaterial3D_kop3f")
+mesh = SubResource("SphereMesh_1why7")
+
+[node name="Timer" type="Timer" parent="."]
