@@ -12,14 +12,15 @@ var gravityNorm = ProjectSettings.get_setting("physics/3d/default_gravity")
 var dashNum = 2
 var medRoll = 15
 
-
 var combo = 0
-var zoneBuffer: Timer
-const ZONE_BUFFER_TIME = .3
-var rushComboBuffer: Timer
+@onready var zoneBuffer: Timer
+@onready var rushComboBuffer: Timer
+@onready var zoneLength: Timer
+@onready var heavyTimer: Timer
 #zone check, ignore
 var lef = false
 var rig = false
+#think of this as the buffer looking for button clicks while attack animations are playing
 var animStart = false
 
 func gravity(delta):
@@ -27,10 +28,17 @@ func gravity(delta):
 		velocity.y -= gravityNorm * delta 
 
 func _ready():
+	
 	sloted_abilities.resize(player_stats.ABILITY_SLOT_MAX)
 	Input.MOUSE_MODE_HIDDEN
 	zoneBuffer = $InitialZoneAttackBuffer
 	rushComboBuffer = $RushComboBuffer
+	heavyTimer = $heavyTimer
+	zoneLength = $zoneLength
+	zoneBuffer.set_paused(true)
+	rushComboBuffer.set_paused(true)
+	zoneLength.set_paused(true)
+	heavyTimer.set_paused(true)
 	#THIS IS COMMENTED OUT SINCE IT WILL NOT RUN ON MY BUILD, IDK WHY, WILL FIX WHEN PLAYER COMBAT IS COMPLETE
 #	sloted_abilities.resize(player_stats.ABILITY_SLOT_MAX)
 	#if(player_stats.abilities != null && player_stats.abilities.size() <= player_stats.ABILITY_SLOT_MAX):
@@ -41,18 +49,29 @@ func _ready():
 	#else:
 		#push_error("Ability slots are either NULL, or exceeds the current maximum")
 func _process(delta):
+	#print(zoneBuffer.time_left)
 	if Input.is_action_just_pressed("Light"):
 		lef = true
-		zoneBuffer.start()
-		animStart = true
-		print("lftclk")
+		if animStart != true:
+			zoneBuffer.paused = !zoneBuffer.paused
+			animStart = true
+			print("lftClick")
+		elif combo > 0 && combo != 4:
+			lef = true
+			print("lftBuffer")
+		else:
+			print("buffereaten")
 	if Input.is_action_just_pressed("Heavy"):
 		rig = true
-		zoneBuffer.start()
-		animStart = true
-		print("rgtclk")
-	if Input.is_action_just_pressed("zone"):
-		zone_attack()                              
+		if animStart != true:
+			zoneBuffer.paused = !zoneBuffer.paused
+			animStart = true
+			print("rigClick")
+		elif combo > 0:
+			rig = true
+			print("rgtBuffer")
+		else:
+			print("bufferEaten")
 	if(current_HP <= 0):
 		player_death()
 		
@@ -74,35 +93,27 @@ func _physics_process(delta):
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
 	
-	
-	var input_dir = Input.get_vector("left", "right", "up", "down")
-	input_dir = input_dir.normalized() # Normalize the input direction vector
-	if input_dir.length() > 0:
-		var direction = (transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized() * current_speed
-		velocity.x = direction.x * current_speed
-		velocity.z = direction.z * current_speed
-		#Dodge(big burst of velocity) towards direction player is moving
-		#TODO dodge is supposed to have slight immunity for spot-dodging, implementing later
-		if Input.is_action_just_pressed("dodge") and dashNum >= 1 :
-			#dashNum = dashNum - 1 
-			#TODO ^^^^ this commented line to come back with movement rework AKA when dodging becomes complete
-			
-			velocity.x = direction.x * current_speed * medRoll
-			velocity.z = direction.z * current_speed * medRoll
-	else:
-		pass
-		velocity.x = move_toward(velocity.x, 0, current_speed)
-		velocity.z = move_toward(velocity.z, 0, current_speed)
-	
-	move_and_slide()
-
-func _on_timer_timeout():
-	if lef == true and rig == false:
-		light_attack_start()
-	elif rig == true and lef == false:
-		heavy_attack()
-	elif rig == true and lef == true:
-		zone_attack()
+	if animStart == false:
+		var input_dir = Input.get_vector("left", "right", "up", "down")
+		input_dir = input_dir.normalized() # Normalize the input direction vector
+		if input_dir.length() > 0:
+			var direction = (transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized() * current_speed
+			velocity.x = direction.x * current_speed
+			velocity.z = direction.z * current_speed
+			#Dodge(big burst of velocity) towards direction player is moving
+			#TODO dodge is supposed to have slight immunity for spot-dodging, implementing later
+			if Input.is_action_just_pressed("dodge") and dashNum >= 1 :
+				#dashNum = dashNum - 1 
+				#TODO ^^^^ this commented line to come back with movement rework AKA when dodging becomes complete
+				
+				velocity.x = direction.x * current_speed * medRoll
+				velocity.z = direction.z * current_speed * medRoll
+		else:
+			pass
+			velocity.x = move_toward(velocity.x, 0, current_speed)
+			velocity.z = move_toward(velocity.z, 0, current_speed)
+		
+		move_and_slide()
 
 func look_at_cursor():
 	#horizontal plane, no looking up or down
@@ -126,16 +137,63 @@ func player_death():
 	print("dead")
 
 func zone_attack():
-	print("zone ")
+	print("zone start")
+	zoneLength.set_paused(false)
 
 func light_attack_start():
 	combo += 1
+	rushComboBuffer.set_paused(false)
+	lef = false
 	if(combo <= 4):
 		print("light: ",combo)
 	else:
 		print("Light Not Used")
+	
 
-func heavy_attack():
+func heavy_attack_start():
+	print("heavy start")
+	rushComboBuffer.set_paused(true)
+	rushComboBuffer.start()
+	heavyTimer.set_paused(false)
+
+func dodge():
+	pass
+
+func _on_initial_zone_attack_buffer_timeout():
+	if((lef and rig == true) and combo < 1):
+		zone_attack()
+	elif(lef == true):
+		light_attack_start()
+	elif(rig == true):
+		heavy_attack_start()
+	lef = false
+	rig = false
+	zoneBuffer.paused = !zoneBuffer.paused
+
+
+func _on_rush_combo_buffer_timeout():
+	if rig == true:
+		heavy_attack_start()
+		
+	elif lef == true && combo < 4:
+		light_attack_start()
+	else:
+		animStart = false
+		lef = false
+		rig = false
+		print("rush end")
+		combo = 0
+		rushComboBuffer.set_paused(true)
+
+func _on_zone_length_timeout():
+	print("zone attack")
+	animStart = false
+	combo = 0
+	lef = false
+	rig = false
+	zoneLength.set_paused(true)
+
+func _on_heavy_timer_timeout():
 	if combo == 0:
 		print("heavy")
 	elif combo == 1:
@@ -146,4 +204,9 @@ func heavy_attack():
 		print("heavy end 3")
 	else:
 		print("heavy end 4")
+	animStart = false
+	lef = false
+	rig = false
 	combo = 0
+	rushComboBuffer.set_paused(true)
+	heavyTimer.set_paused(true)

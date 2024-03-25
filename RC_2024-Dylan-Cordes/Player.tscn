@@ -55,9 +55,23 @@ material_override = SubResource("StandardMaterial3D_kop3f")
 mesh = SubResource("SphereMesh_1why7")
 
 [node name="InitialZoneAttackBuffer" type="Timer" parent="."]
-wait_time = 0.128
-one_shot = true
+process_callback = 0
+wait_time = 0.1
+autostart = true
 
 [node name="RushComboBuffer" type="Timer" parent="."]
 process_callback = 0
-one_shot = true
+wait_time = 0.6
+autostart = true
+
+[node name="zoneLength" type="Timer" parent="."]
+wait_time = 2.4
+autostart = true
+
+[node name="heavyTimer" type="Timer" parent="."]
+autostart = true
+
+[connection signal="timeout" from="InitialZoneAttackBuffer" to="." method="_on_initial_zone_attack_buffer_timeout"]
+[connection signal="timeout" from="RushComboBuffer" to="." method="_on_rush_combo_buffer_timeout"]
+[connection signal="timeout" from="zoneLength" to="." method="_on_zone_length_timeout"]
+[connection signal="timeout" from="heavyTimer" to="." method="_on_heavy_timer_timeout"]
