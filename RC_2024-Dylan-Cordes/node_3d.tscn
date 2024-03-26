@@ -48,3 +48,8 @@ material = SubResource("StandardMaterial3D_byg1t")
 transform = Transform3D(0.991144, 0, 0.132793, 0, 1, 0, -0.132793, 0, 0.991144, 1.58779, 2.81287, 5.7265)
 axis_lock_angular_y = true
 max_speed = 20
+
+[node name="hurtbox" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.40247, 3.03, 4.14256)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="hurtbox"]

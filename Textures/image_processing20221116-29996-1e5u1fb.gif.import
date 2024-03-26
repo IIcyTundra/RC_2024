@@ -1,0 +1,14 @@
+[remap]
+
+importer="import_gif_to_animated_texture"
+type="AnimatedTexture"
+uid="uid://t3im3gkon0dh"
+path="res://.godot/imported/image_processing20221116-29996-1e5u1fb.gif-7138b40d3a448b0e7161a2e859666334.tres"
+
+[deps]
+
+source_file="res://Textures/image_processing20221116-29996-1e5u1fb.gif"
+dest_files=["res://.godot/imported/image_processing20221116-29996-1e5u1fb.gif-7138b40d3a448b0e7161a2e859666334.tres"]
+
+[params]
+

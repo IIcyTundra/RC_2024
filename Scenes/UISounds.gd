@@ -29,10 +29,10 @@ func _ready() -> void:
 	# connect signals to the method that plays the sounds
 	install_sounds(get_node(root_path))
 
-func _unhandled_key_input(event):
-	if(root_path.get_as_property_path() == "res://Scenes/main_menu.tscn"):
-		if event.is_pressed():
-			ui_sfx_play.bind(&"Pressed")
+#func _unhandled_key_input(event):
+	#if(root_path. == "res://Scenes/main_menu.tscn"):
+		#if event.is_pressed(): 
+			#ui_sfx_play.bind(&"Pressed")
 
 func install_sounds(node: Node) -> void:
 	for i in node.get_children():

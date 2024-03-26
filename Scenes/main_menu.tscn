@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://53ngdk8e73hk"]
+[gd_scene load_steps=20 format=3 uid="uid://53ngdk8e73hk"]
 
 [ext_resource type="Script" path="res://Scenes/main_menu.gd" id="1_bnqxw"]
 [ext_resource type="PackedScene" uid="uid://6tkdcuvfgdw4" path="res://Scenes/UISounds.tscn" id="1_g8xua"]
@@ -8,6 +8,7 @@
 [ext_resource type="FontFile" uid="uid://brvsr4qsjb6iv" path="res://Fonts/Squarish_Sans_CT_Medium.ttf" id="6_f5u65"]
 [ext_resource type="AudioStream" uid="uid://dmqad113n3ihd" path="res://Audio/UISFX/Hover.wav" id="6_im2tp"]
 [ext_resource type="AudioStream" uid="uid://qlfhdqgs6d8k" path="res://Audio/y2mate.is - restless_nights___silent_hill_inspired_ambience-TQs2svOTiaQ-128k-1710314576.mp3" id="8_g4yyx"]
+[ext_resource type="Texture2D" uid="uid://bu3d8jqv85l8d" path="res://Textures/a5535c8cb58dd2bad5bccc0c0205b7a5.gif" id="9_fs2ob"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_iljrf"]
 shader = ExtResource("1_ianyj")
@@ -141,6 +142,16 @@ offset_bottom = -3.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = SubResource("GradientTexture2D_51t15")
+
+[node name="TextureRect2" type="TextureRect" parent="."]
+modulate = Color(1, 0.0117647, 0.254902, 0.580392)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("9_fs2ob")
 
 [node name="Panel" type="Panel" parent="."]
 layout_mode = 1
