@@ -1,17 +1,40 @@
 [gd_scene load_steps=5 format=3 uid="uid://bsvb6m37hksfw"]
 
-[ext_resource type="Shader" path="res://Scripts/Shaders/TrueDither.gdshader" id="1_nqk84"]
-[ext_resource type="Texture2D" uid="uid://bj310r6nmnxnl" path="res://Textures/Color_Palettes/Shader1.png" id="2_mdebv"]
-[ext_resource type="Texture2D" uid="uid://bby0f6oqt478p" path="res://Textures/DitherTexures/bayer2.png" id="3_edy2x"]
+[ext_resource type="Shader" path="res://Scripts/Shaders/CRT.gdshader" id="1_8vscq"]
+[ext_resource type="Shader" path="res://Scripts/Shaders/Pixelate.gdshader" id="2_j26ii"]
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_fcqxd"]
-shader = ExtResource("1_nqk84")
-shader_parameter/u_bit_depth = 2
-shader_parameter/u_contrast = 0.0
-shader_parameter/u_offset = 0.0
-shader_parameter/u_dither_size = 1
-shader_parameter/u_dither_tex = ExtResource("3_edy2x")
-shader_parameter/u_color_tex = ExtResource("2_mdebv")
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_j06d3"]
+shader = ExtResource("1_8vscq")
+shader_parameter/overlay = true
+shader_parameter/scanlines_opacity = 0.096
+shader_parameter/scanlines_width = 0.1
+shader_parameter/grille_opacity = 0.12
+shader_parameter/resolution = Vector2(1280, 720)
+shader_parameter/pixelate = true
+shader_parameter/roll = true
+shader_parameter/roll_speed = 2.0
+shader_parameter/roll_size = 14.965
+shader_parameter/roll_variation = 1.8
+shader_parameter/distort_intensity = 0.02
+shader_parameter/noise_opacity = 0.4
+shader_parameter/noise_speed = 3.0
+shader_parameter/static_noise_intensity = 0.06
+shader_parameter/aberration = 0.0970001
+shader_parameter/brightness = 1.4
+shader_parameter/discolor = false
+shader_parameter/warp_amount = 0.0
+shader_parameter/clip_warp = false
+shader_parameter/vignette_intensity = 0.4
+shader_parameter/vignette_opacity = 0.488
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_uiw7g"]
+shader = ExtResource("2_j26ii")
+shader_parameter/change_color_depth = true
+shader_parameter/target_color_depth = 4
+shader_parameter/dithering = true
+shader_parameter/scale_resolution = true
+shader_parameter/target_resolution_scale = 6
+shader_parameter/enable_recolor = true
 
 [node name="PostProcessing" type="Control"]
 layout_mode = 3
@@ -21,9 +44,20 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Dither" type="ColorRect" parent="."]
-material = SubResource("ShaderMaterial_fcqxd")
-clip_contents = true
+[node name="VHS" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_j06d3")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="BackBufferCopy" type="BackBufferCopy" parent="."]
+rect = Rect2(0, 0, 1920, 1080)
+
+[node name="ColorRect" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_uiw7g")
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0

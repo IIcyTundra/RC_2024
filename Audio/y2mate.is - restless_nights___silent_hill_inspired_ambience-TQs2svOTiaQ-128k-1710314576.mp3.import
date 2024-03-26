@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://qlfhdqgs6d8k"
+path="res://.godot/imported/y2mate.is - restless_nights___silent_hill_inspired_ambience-TQs2svOTiaQ-128k-1710314576.mp3-2717b32e6985097555cf6597aa1fbcbe.mp3str"
+
+[deps]
+
+source_file="res://Audio/y2mate.is - restless_nights___silent_hill_inspired_ambience-TQs2svOTiaQ-128k-1710314576.mp3"
+dest_files=["res://.godot/imported/y2mate.is - restless_nights___silent_hill_inspired_ambience-TQs2svOTiaQ-128k-1710314576.mp3-2717b32e6985097555cf6597aa1fbcbe.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

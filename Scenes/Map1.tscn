@@ -1,11 +1,14 @@
-[gd_scene load_steps=9 format=3 uid="uid://bfpkck3qxjtse"]
+[gd_scene load_steps=10 format=3 uid="uid://bfpkck3qxjtse"]
 
 [ext_resource type="Texture2D" uid="uid://dnga7mdr4307" path="res://Textures/kenney-prototype-textures-db6622fbe90621eed70a0b417ae8d97281f45e6c/addons/kenney_prototype_textures/dark/texture_08.png" id="1_a45r6"]
 [ext_resource type="PackedScene" uid="uid://bsvb6m37hksfw" path="res://Scenes/post_processing.tscn" id="1_f0jjt"]
 [ext_resource type="PackedScene" uid="uid://cgsis1rgndur3" path="res://Scenes/Player.tscn" id="3_nt4jp"]
+[ext_resource type="PackedScene" uid="uid://bc801ot4hr3sp" path="res://Scenes/HUD.tscn" id="4_4obt6"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_pmwwu"]
-sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+sky_top_color = Color(0.823529, 0, 0.345098, 1)
+sky_horizon_color = Color(1, 0.427451, 0.65098, 1)
+sky_curve = 0.424264
 ground_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
 
 [sub_resource type="Sky" id="Sky_ddm46"]
@@ -14,7 +17,7 @@ sky_material = SubResource("ProceduralSkyMaterial_pmwwu")
 [sub_resource type="Environment" id="Environment_4um1s"]
 background_mode = 2
 sky = SubResource("Sky_ddm46")
-tonemap_mode = 2
+tonemap_mode = 3
 glow_enabled = true
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_je4is"]
@@ -37,6 +40,7 @@ transform = Transform3D(-0.866023, -0.433016, 0.250001, 0, 0.499998, 0.866027, -
 shadow_enabled = true
 
 [node name="CSGBox3D" type="CSGBox3D" parent="."]
+transform = Transform3D(0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, 0.707107, -0.0656605, 0, 0.00160217)
 material_override = SubResource("StandardMaterial3D_je4is")
 use_collision = true
 size = Vector3(40, 1, 40)
@@ -44,3 +48,9 @@ material = SubResource("StandardMaterial3D_sh6ea")
 
 [node name="Player" parent="." instance=ExtResource("3_nt4jp")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5, 0)
+
+[node name="HUD" parent="." instance=ExtResource("4_4obt6")]
+offset_left = 4.0
+offset_top = 0.0
+offset_right = 4.0
+offset_bottom = 0.0

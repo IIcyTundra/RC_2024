@@ -1,0 +1,26 @@
+[gd_scene load_steps=7 format=3 uid="uid://6tkdcuvfgdw4"]
+
+[ext_resource type="Script" path="res://Scenes/UISounds.gd" id="1_lx2uv"]
+[ext_resource type="AudioStream" uid="uid://dmqad113n3ihd" path="res://Audio/UISFX/Hover.wav" id="2_df2nl"]
+[ext_resource type="AudioStream" uid="uid://cblc5mgtukq38" path="res://Audio/UISFX/Pressed.wav" id="3_6m64f"]
+[ext_resource type="AudioStream" uid="uid://bt7tha5v4bpab" path="res://Audio/UISFX/Message.wav" id="4_nnf6s"]
+[ext_resource type="AudioStream" uid="uid://b80bh5bqcwwct" path="res://Audio/UISFX/Accept.wav" id="5_xww0j"]
+[ext_resource type="AudioStream" uid="uid://b3v3uiexpbvga" path="res://Audio/UISFX/Cancel.wav" id="6_gbbky"]
+
+[node name="UISounds" type="Node"]
+script = ExtResource("1_lx2uv")
+
+[node name="UI_Hover" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_df2nl")
+
+[node name="UI_Click" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_6m64f")
+
+[node name="UI_Cancel" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_nnf6s")
+
+[node name="UI_Message" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_xww0j")
+
+[node name="UI_Accept" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_gbbky")

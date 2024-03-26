@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://ctdje4avf3fwf"
+path="res://.godot/imported/scph10000_00015.wav-1323912a6124e1e887ee7532e5c96dba.sample"
+
+[deps]
+
+source_file="res://Audio/PlayStation 2 - System BIOS PS2 - Sound Effects/Sound Effects/scph10000_00015.wav"
+dest_files=["res://.godot/imported/scph10000_00015.wav-1323912a6124e1e887ee7532e5c96dba.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

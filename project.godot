@@ -20,6 +20,13 @@ config/icon="res://icon.svg"
 TurnManager="*res://addons/Gameplay_Systems/godot_gameplay_systems/turn_based/./autoloads/turn_manager.gd"
 DialogueManager="*res://addons/dialogue_manager/dialogue_manager.gd"
 
+[display]
+
+window/size/viewport_width=1920
+window/size/viewport_height=1080
+window/size/mode=3
+window/stretch/mode="canvas_items"
+
 [dotnet]
 
 project/assembly_name="RC_2024"

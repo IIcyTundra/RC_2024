@@ -23,7 +23,7 @@ material_override = SubResource("StandardMaterial3D_nacjy")
 mesh = SubResource("CapsuleMesh_nxxh8")
 
 [node name="Anchor" type="Node3D" parent="."]
-transform = Transform3D(0.707107, -0.5, 0.5, 0, 0.707107, 0.707107, -0.707107, -0.5, 0.5, 5, 6, 5)
+transform = Transform3D(1, 0, 0, 0, 0.707107, 0.707107, 0, -0.707107, 0.707107, 0, 10, 10)
 
 [node name="Camera3D" type="Camera3D" parent="Anchor"]
 projection = 1

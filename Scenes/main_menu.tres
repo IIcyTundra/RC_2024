@@ -1,0 +1,48 @@
+[gd_resource type="Theme" load_steps=5 format=3 uid="uid://j17o6ktkcs4k"]
+
+[ext_resource type="FontFile" uid="uid://brvsr4qsjb6iv" path="res://Fonts/Squarish_Sans_CT_Medium.ttf" id="1_y7q35"]
+[ext_resource type="FontFile" uid="uid://c6dknop50ppgv" path="res://Fonts/glitch_inside/Glitch inside.otf" id="2_f7eoy"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bms2b"]
+bg_color = Color(0.662745, 0.662745, 0.662745, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wygoj"]
+bg_color = Color(0, 0, 0, 0.0705882)
+
+[resource]
+default_font_size = 40
+Button/colors/font_color = Color(1, 1, 1, 1)
+Button/colors/font_disabled_color = Color(0.870588, 0.87451, 0.87451, 0.501961)
+Button/colors/font_focus_color = Color(0.94902, 0, 0, 1)
+Button/colors/font_hover_color = Color(0.94902, 0, 0, 1)
+Button/colors/font_hover_pressed_color = Color(1, 1, 1, 1)
+Button/colors/font_outline_color = Color(1, 1, 1, 1)
+Button/colors/font_pressed_color = Color(1, 1, 1, 1)
+Button/colors/icon_disabled_color = Color(1, 1, 1, 0.4)
+Button/colors/icon_focus_color = Color(1, 1, 1, 1)
+Button/colors/icon_hover_color = Color(1, 1, 1, 1)
+Button/colors/icon_hover_pressed_color = Color(1, 1, 1, 1)
+Button/colors/icon_normal_color = Color(1, 1, 1, 1)
+Button/colors/icon_pressed_color = Color(1, 1, 1, 1)
+Button/constants/h_separation = 4
+Button/constants/icon_max_width = 0
+Button/constants/outline_size = 0
+Button/font_sizes/font_size = 60
+Button/fonts/font = ExtResource("1_y7q35")
+Button/styles/disabled = null
+Button/styles/focus = null
+Button/styles/hover = SubResource("StyleBoxFlat_bms2b")
+Button/styles/normal = null
+Button/styles/pressed = null
+Label/colors/font_color = Color(0.996078, 0, 0, 1)
+Label/colors/font_outline_color = Color(0.247059, 0.00392157, 0, 1)
+Label/colors/font_shadow_color = Color(0, 0, 0, 0.341176)
+Label/constants/line_spacing = 10
+Label/constants/outline_size = 30
+Label/constants/shadow_offset_x = -20
+Label/constants/shadow_offset_y = 20
+Label/constants/shadow_outline_size = 4
+Label/font_sizes/font_size = 200
+Label/fonts/font = ExtResource("2_f7eoy")
+Panel/styles/panel = SubResource("StyleBoxFlat_wygoj")
+VBoxContainer/constants/separation = 50
