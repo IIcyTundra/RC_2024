@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://53ngdk8e73hk"]
+[gd_scene load_steps=22 format=3 uid="uid://53ngdk8e73hk"]
 
 [ext_resource type="Script" path="res://Scenes/main_menu.gd" id="1_bnqxw"]
 [ext_resource type="PackedScene" uid="uid://6tkdcuvfgdw4" path="res://Scenes/UISounds.tscn" id="1_g8xua"]
@@ -9,6 +9,7 @@
 [ext_resource type="AudioStream" uid="uid://dmqad113n3ihd" path="res://Audio/UISFX/Hover.wav" id="6_im2tp"]
 [ext_resource type="AudioStream" uid="uid://qlfhdqgs6d8k" path="res://Audio/y2mate.is - restless_nights___silent_hill_inspired_ambience-TQs2svOTiaQ-128k-1710314576.mp3" id="8_g4yyx"]
 [ext_resource type="Texture2D" uid="uid://bu3d8jqv85l8d" path="res://Textures/a5535c8cb58dd2bad5bccc0c0205b7a5.gif" id="9_fs2ob"]
+[ext_resource type="Shader" path="res://Scripts/Shaders/Transition.gdshader" id="10_ph023"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_iljrf"]
 shader = ExtResource("1_ianyj")
@@ -67,7 +68,7 @@ loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Panel/Title/MenuStart:theme_override_colors/font_color")
+tracks/0/path = NodePath("Start Panel/Title/MenuStart:theme_override_colors/font_color")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -79,7 +80,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Panel/Title/MenuStart:theme_override_colors/font_shadow_color")
+tracks/1/path = NodePath("Start Panel/Title/MenuStart:theme_override_colors/font_shadow_color")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -91,7 +92,7 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("Panel/Title/MenuStart:theme_override_colors/font_outline_color")
+tracks/2/path = NodePath("Start Panel/Title/MenuStart:theme_override_colors/font_outline_color")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -106,6 +107,11 @@ _data = {
 "TextFade": SubResource("Animation_o7mr3")
 }
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_rsmy8"]
+shader = ExtResource("10_ph023")
+shader_parameter/progress = 0.0
+shader_parameter/diamondPixelSize = 20.0
+
 [node name="MainMenu" type="Control" node_paths=PackedStringArray("Animator", "Buttons", "MenuStart")]
 layout_mode = 3
 anchors_preset = 15
@@ -115,8 +121,8 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_bnqxw")
 Animator = NodePath("AnimationPlayer")
-Buttons = NodePath("Panel/Buttons")
-MenuStart = NodePath("Panel/Title/MenuStart")
+Buttons = NodePath("Start Panel/Buttons")
+MenuStart = NodePath("Start Panel/Title/MenuStart")
 
 [node name="UISounds" parent="." instance=ExtResource("1_g8xua")]
 root_path = NodePath("..")
@@ -131,7 +137,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="TextureRect" type="TextureRect" parent="."]
+[node name="PS2 Load" type="TextureRect" parent="."]
 material = SubResource("ShaderMaterial_hsbbv")
 layout_mode = 1
 anchors_preset = 15
@@ -143,8 +149,8 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = SubResource("GradientTexture2D_51t15")
 
-[node name="TextureRect2" type="TextureRect" parent="."]
-modulate = Color(1, 0.0117647, 0.254902, 0.580392)
+[node name="Background Gif" type="TextureRect" parent="."]
+modulate = Color(1, 0.0117647, 0, 1)
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -153,7 +159,7 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("9_fs2ob")
 
-[node name="Panel" type="Panel" parent="."]
+[node name="Start Panel" type="Panel" parent="."]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -164,7 +170,7 @@ grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("2_ifocx")
 
-[node name="Title" type="Label" parent="Panel"]
+[node name="Title" type="Label" parent="Start Panel"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -181,7 +187,7 @@ theme = ExtResource("2_ifocx")
 text = "NVY!
 "
 
-[node name="MenuStart" type="Label" parent="Panel/Title"]
+[node name="MenuStart" type="Label" parent="Start Panel/Title"]
 layout_mode = 0
 offset_top = 235.0
 offset_right = 617.0
@@ -194,7 +200,7 @@ theme_override_fonts/font = ExtResource("6_f5u65")
 theme_override_font_sizes/font_size = 50
 text = "Press any key  to start"
 
-[node name="Buttons" type="VBoxContainer" parent="Panel"]
+[node name="Buttons" type="VBoxContainer" parent="Start Panel"]
 visible = false
 layout_direction = 1
 layout_mode = 1
@@ -212,18 +218,18 @@ grow_vertical = 0
 theme = ExtResource("2_ifocx")
 alignment = 1
 
-[node name="Button" type="Button" parent="Panel/Buttons"]
+[node name="Button" type="Button" parent="Start Panel/Buttons"]
 layout_mode = 2
 theme = ExtResource("2_ifocx")
 text = "Start Game"
 expand_icon = true
 
-[node name="Button2" type="Button" parent="Panel/Buttons"]
+[node name="Button2" type="Button" parent="Start Panel/Buttons"]
 layout_mode = 2
 theme = ExtResource("2_ifocx")
 text = "Options"
 
-[node name="Button3" type="Button" parent="Panel/Buttons"]
+[node name="Button3" type="Button" parent="Start Panel/Buttons"]
 layout_mode = 2
 theme = ExtResource("2_ifocx")
 text = "Quit"
@@ -236,11 +242,25 @@ stream = ExtResource("8_g4yyx")
 volume_db = 3.748
 autoplay = true
 
+[node name="Timer" type="Timer" parent="."]
+
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
 "": SubResource("AnimationLibrary_1ll55")
 }
 
-[connection signal="pressed" from="Panel/Buttons/Button" to="." method="_on_button_pressed"]
-[connection signal="pressed" from="Panel/Buttons/Button2" to="." method="_on_button_2_pressed"]
-[connection signal="pressed" from="Panel/Buttons/Button3" to="." method="_on_button_3_pressed"]
+[node name="Transition" type="ColorRect" parent="."]
+visible = false
+modulate = Color(1, 0, 0, 1)
+material = SubResource("ShaderMaterial_rsmy8")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.811765, 0.141176, 0.0823529, 1)
+
+[connection signal="pressed" from="Start Panel/Buttons/Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="Start Panel/Buttons/Button2" to="." method="_on_button_2_pressed"]
+[connection signal="pressed" from="Start Panel/Buttons/Button3" to="." method="_on_button_3_pressed"]

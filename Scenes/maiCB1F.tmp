@@ -1,0 +1,267 @@
+[gd_scene load_steps=22 format=3 uid="uid://53ngdk8e73hk"]
+
+[ext_resource type="Script" path="res://Scenes/main_menu.gd" id="1_bnqxw"]
+[ext_resource type="PackedScene" uid="uid://6tkdcuvfgdw4" path="res://Scenes/UISounds.tscn" id="1_g8xua"]
+[ext_resource type="Shader" path="res://Scripts/Shaders/CRT.gdshader" id="1_ianyj"]
+[ext_resource type="Shader" path="res://Scripts/Shaders/PS2Load.gdshader" id="1_vf6tw"]
+[ext_resource type="Theme" uid="uid://j17o6ktkcs4k" path="res://Scenes/main_menu.tres" id="2_ifocx"]
+[ext_resource type="FontFile" uid="uid://brvsr4qsjb6iv" path="res://Fonts/Squarish_Sans_CT_Medium.ttf" id="6_f5u65"]
+[ext_resource type="AudioStream" uid="uid://dmqad113n3ihd" path="res://Audio/UISFX/Hover.wav" id="6_im2tp"]
+[ext_resource type="AudioStream" uid="uid://qlfhdqgs6d8k" path="res://Audio/y2mate.is - restless_nights___silent_hill_inspired_ambience-TQs2svOTiaQ-128k-1710314576.mp3" id="8_g4yyx"]
+[ext_resource type="Texture2D" uid="uid://bu3d8jqv85l8d" path="res://Textures/a5535c8cb58dd2bad5bccc0c0205b7a5.gif" id="9_fs2ob"]
+[ext_resource type="Shader" path="res://Scripts/Shaders/Transition.gdshader" id="10_ph023"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_iljrf"]
+shader = ExtResource("1_ianyj")
+shader_parameter/overlay = false
+shader_parameter/scanlines_opacity = 0.101
+shader_parameter/scanlines_width = 0.222
+shader_parameter/grille_opacity = 0.0
+shader_parameter/resolution = Vector2(720, 479.04)
+shader_parameter/pixelate = true
+shader_parameter/roll = true
+shader_parameter/roll_speed = 1.0
+shader_parameter/roll_size = 15.0
+shader_parameter/roll_variation = 1.8
+shader_parameter/distort_intensity = 0.05
+shader_parameter/noise_opacity = 0.3
+shader_parameter/noise_speed = 5.0
+shader_parameter/static_noise_intensity = 0.03
+shader_parameter/aberration = 0.00800005
+shader_parameter/brightness = 1.4
+shader_parameter/discolor = true
+shader_parameter/warp_amount = 0.944
+shader_parameter/clip_warp = false
+shader_parameter/vignette_intensity = 0.4
+shader_parameter/vignette_opacity = 0.781
+
+[sub_resource type="Gradient" id="Gradient_v0qs1"]
+colors = PackedColorArray(1, 0, 0, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_07tth"]
+gradient = SubResource("Gradient_v0qs1")
+
+[sub_resource type="Gradient" id="Gradient_nm2y7"]
+colors = PackedColorArray(1, 0, 0, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_tqr08"]
+gradient = SubResource("Gradient_nm2y7")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_hsbbv"]
+shader = ExtResource("1_vf6tw")
+shader_parameter/iTime = 1.5
+shader_parameter/scale_modifier = 0.3
+shader_parameter/iChannel0 = SubResource("GradientTexture1D_07tth")
+shader_parameter/iChannel1 = SubResource("GradientTexture1D_tqr08")
+
+[sub_resource type="Gradient" id="Gradient_mde4m"]
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_51t15"]
+gradient = SubResource("Gradient_mde4m")
+fill_from = Vector2(0.527523, 0.711009)
+fill_to = Vector2(0.555046, 0.0229358)
+
+[sub_resource type="Animation" id="Animation_o7mr3"]
+resource_name = "TextFade"
+length = 2.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Panel/Title/MenuStart:theme_override_colors/font_color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.1, 1, 2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Panel/Title/MenuStart:theme_override_colors/font_shadow_color")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.1, 1, 2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(0.231373, 0.231373, 0.231373, 1), Color(0, 0, 0, 0), Color(0.231373, 0.231373, 0.231373, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Panel/Title/MenuStart:theme_override_colors/font_outline_color")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.1, 1, 2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 1), Color(0, 0, 0, 0), Color(0, 0, 0, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_1ll55"]
+_data = {
+"TextFade": SubResource("Animation_o7mr3")
+}
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_rsmy8"]
+shader = ExtResource("10_ph023")
+shader_parameter/Speed = 1.0
+shader_parameter/Intensity = 2.0
+shader_parameter/Hardness = 500.0
+shader_parameter/Scale = Vector2(1, 1)
+shader_parameter/RotationSpeed = 1.0
+shader_parameter/Color = Vector3(1, 1, 1)
+
+[node name="MainMenu" type="Control" node_paths=PackedStringArray("Animator", "Buttons", "MenuStart")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_bnqxw")
+Animator = NodePath("AnimationPlayer")
+Buttons = NodePath("Panel/Buttons")
+MenuStart = NodePath("Panel/Title/MenuStart")
+
+[node name="UISounds" parent="." instance=ExtResource("1_g8xua")]
+root_path = NodePath("..")
+
+[node name="PP" type="ColorRect" parent="."]
+z_index = 1
+material = SubResource("ShaderMaterial_iljrf")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PS2 Load" type="TextureRect" parent="."]
+material = SubResource("ShaderMaterial_hsbbv")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -3.0
+offset_bottom = -3.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("GradientTexture2D_51t15")
+
+[node name="Background Gif" type="TextureRect" parent="."]
+modulate = Color(1, 0.0117647, 0.254902, 0.580392)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("9_fs2ob")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 2.0
+offset_right = 2.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("2_ifocx")
+
+[node name="Title" type="Label" parent="Panel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -312.0
+offset_top = -159.0
+offset_right = 313.0
+offset_bottom = 12.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("2_ifocx")
+text = "NVY!
+"
+
+[node name="MenuStart" type="Label" parent="Panel/Title"]
+layout_mode = 0
+offset_top = 235.0
+offset_right = 617.0
+offset_bottom = 405.0
+theme = ExtResource("2_ifocx")
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(0.231373, 0.231373, 0.231373, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("6_f5u65")
+theme_override_font_sizes/font_size = 50
+text = "Press any key  to start"
+
+[node name="Buttons" type="VBoxContainer" parent="Panel"]
+visible = false
+layout_direction = 1
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -254.0
+offset_top = -464.0
+offset_right = 254.0
+offset_bottom = -157.0
+grow_horizontal = 2
+grow_vertical = 0
+theme = ExtResource("2_ifocx")
+alignment = 1
+
+[node name="Button" type="Button" parent="Panel/Buttons"]
+layout_mode = 2
+theme = ExtResource("2_ifocx")
+text = "Start Game"
+expand_icon = true
+
+[node name="Button2" type="Button" parent="Panel/Buttons"]
+layout_mode = 2
+theme = ExtResource("2_ifocx")
+text = "Options"
+
+[node name="Button3" type="Button" parent="Panel/Buttons"]
+layout_mode = 2
+theme = ExtResource("2_ifocx")
+text = "Quit"
+
+[node name="UI" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_im2tp")
+
+[node name="Menu" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("8_g4yyx")
+volume_db = 3.748
+autoplay = true
+
+[node name="Timer" type="Timer" parent="."]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_1ll55")
+}
+
+[node name="Transition" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_rsmy8")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[connection signal="pressed" from="Panel/Buttons/Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="Panel/Buttons/Button2" to="." method="_on_button_2_pressed"]
+[connection signal="pressed" from="Panel/Buttons/Button3" to="." method="_on_button_3_pressed"]

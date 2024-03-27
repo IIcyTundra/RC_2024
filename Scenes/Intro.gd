@@ -1,8 +1,4 @@
 extends Control
 
-const IntroDialogue = preload("res://Dialogue/Intro.dialogue")
 # Called when the node enters the scene tree for the first time.
 
-
-func _ready():
-	DialogueManager.show_example_dialogue_balloon()
