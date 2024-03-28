@@ -1,32 +1,77 @@
-[gd_scene load_steps=6 format=3 uid="uid://cgsis1rgndur3"]
+[gd_scene load_steps=9 format=3 uid="uid://cgsis1rgndur3"]
 
 [ext_resource type="Script" path="res://Scripts/PlayerCharacterBase.gd" id="1_l8fam"]
-[ext_resource type="Resource" uid="uid://bac0glrta34un" path="res://Scripts/Light.tres" id="2_dknlf"]
+[ext_resource type="Script" path="res://Scripts/PlayerClassStats.gd" id="2_r75br"]
 
-[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_7qnsf"]
+[sub_resource type="Resource" id="Resource_6fii1"]
+script = ExtResource("2_r75br")
+player_name = ""
+player_class = ""
+base_HP = 100
+base_SP = 50
+base_AP = 0
+base_speed = 10
+base_stamina = 0
+abilities = []
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_nacjy"]
-albedo_color = Color(0.482353, 0.0392157, 1, 1)
+[sub_resource type="BoxShape3D" id="BoxShape3D_lwy7u"]
 
-[sub_resource type="CapsuleMesh" id="CapsuleMesh_nxxh8"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qxl0g"]
+albedo_color = Color(0.764706, 0, 0.376471, 1)
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_hytxs"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_kop3f"]
+render_priority = 1
+albedo_color = Color(0.776471, 0, 0.215686, 1)
+
+[sub_resource type="SphereMesh" id="SphereMesh_1why7"]
 
 [node name="Player" type="CharacterBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00222456, 1.13523, -0.00448203)
 script = ExtResource("1_l8fam")
-player_stats = ExtResource("2_dknlf")
-current_speed = 10
+player_stats = SubResource("Resource_6fii1")
+current_HP = 10
+max_speed = 10
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-shape = SubResource("CapsuleShape3D_7qnsf")
+[node name="hitbox & camera rig" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_lwy7u")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-material_override = SubResource("StandardMaterial3D_nacjy")
-mesh = SubResource("CapsuleMesh_nxxh8")
+[node name="Camera3D" type="Camera3D" parent="hitbox & camera rig"]
+transform = Transform3D(0.966075, -0.197841, 0.166008, 0, 0.642788, 0.766044, -0.258263, -0.740056, 0.620981, 1.83498, 7.26995, 6.72873)
+fov = 93.6
 
-[node name="Anchor" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.707107, 0.707107, 0, -0.707107, 0.707107, 0, 10, 10)
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
+material_override = SubResource("StandardMaterial3D_qxl0g")
+mesh = SubResource("CapsuleMesh_hytxs")
 
-[node name="Camera3D" type="Camera3D" parent="Anchor"]
-projection = 1
-fov = 90.0
-size = 15.0
-near = 0.01
+[node name="placement_weapon" type="CSGBox3D" parent="MeshInstance3D2"]
+transform = Transform3D(0.0783067, 0.19076, 0.10245, 1.28885, 0.020392, -0.148547, -0.676644, 0.0609176, -0.271091, 0.623431, 0.322087, -0.434964)
+size = Vector3(1, 0.187012, 0.294067)
+
+[node name="cursor" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.0969919, 0, 0, 0, 0.127893, 0, 0, 0, 0.0824079, 0.0922849, 0.345043, -1.78978)
+material_override = SubResource("StandardMaterial3D_kop3f")
+mesh = SubResource("SphereMesh_1why7")
+
+[node name="InitialZoneAttackBuffer" type="Timer" parent="."]
+process_callback = 0
+wait_time = 0.1
+autostart = true
+
+[node name="RushComboBuffer" type="Timer" parent="."]
+process_callback = 0
+wait_time = 0.6
+autostart = true
+
+[node name="zoneLength" type="Timer" parent="."]
+wait_time = 2.4
+autostart = true
+
+[node name="heavyTimer" type="Timer" parent="."]
+autostart = true
+
+[connection signal="timeout" from="InitialZoneAttackBuffer" to="." method="_on_initial_zone_attack_buffer_timeout"]
+[connection signal="timeout" from="RushComboBuffer" to="." method="_on_rush_combo_buffer_timeout"]
+[connection signal="timeout" from="zoneLength" to="." method="_on_zone_length_timeout"]
+[connection signal="timeout" from="heavyTimer" to="." method="_on_heavy_timer_timeout"]
