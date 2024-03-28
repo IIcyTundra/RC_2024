@@ -6,6 +6,8 @@ var idle_state: AZState
 var fall_state: AZState
 @export
 var chase_state: AZState
+@export
+var posture_broken_state: AZState
 @onready
 var anim_tree = $"../../MeleeEnemyAni/AnimationTree"
 func enter() -> void:
@@ -23,6 +25,8 @@ func process_physics(delta: float) -> AZState:
 	#print("x: "+str(parent.position.x)+" | y: "+str(parent.position.y))
 	if not parent.is_on_floor():
 		return fall_state
+	if parent.postureBroken:
+		return posture_broken_state
 	if playback.get_current_node() != "attack":
 		return idle_state
 	return null

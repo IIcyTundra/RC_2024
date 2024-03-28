@@ -6,14 +6,30 @@ var ATTACK_RANGE = 1.5
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
-
+var postureBroken = false
 #simple function that will deal damage to the entity
-func takeDamage(damage):
-	if current_HP<damage:
+#overriding super function
+func regen_SP(stat_bonus):
+	super.regen_SP(stat_bonus)
+	if current_SP == max_SP:
+		postureBroken = false
+	print("Posture regenerating at:" + str(current_SP))
+func takeDamage(healthDamage,postureDamage):
+	#healthDamage
+	if current_HP<healthDamage:
 		current_HP = 0
 		queue_free()
+		print("Enemy Defeated")
 	else:
-		current_HP -= damage
+		current_HP -= healthDamage
+	#takes posture damage (SP DAMAGE)
+	if current_SP<postureDamage:
+		current_SP = 0
+		postureBroken = true
+		print("Posture Broken!")
+	else:
+		current_SP -= postureDamage
+	print("Enemy Health: "+str(current_HP))
 #Function that will add velocity to object in order to follow player
 func followPlayer():
 	#getting the player for position values

@@ -6,6 +6,8 @@ var idle_state: AZState
 var chase_state: AZState
 @export
 var melee_attack_state: AZState
+@export
+var posture_broken_state: AZState
 @onready
 var anim_tree = $"../../MeleeEnemyAni/AnimationTree"
 func enter() -> void:

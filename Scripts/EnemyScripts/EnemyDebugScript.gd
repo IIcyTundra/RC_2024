@@ -5,4 +5,4 @@ func _process(delta):
 	if input == true:
 		var enemies = get_tree().get_nodes_in_group("Enemys")
 		for x in enemies:
-			x.takeDamage(20)
+			x.takeDamage(5,100)
